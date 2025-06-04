@@ -1,11 +1,47 @@
 [
-    { "emoji": "👡", "word": "Schuh", "id": 0 },
-    { "emoji": "🍝", "word": "Spaghetti", "id": 1 },
-    { "emoji": "🐑", "word": "Schaf", "id": 2 },
-    { "emoji": "🐢", "word": "Schildkröte", "id": 3 },
-    { "emoji": "🏫", "word": "Schule", "id": 4 },
-    { "emoji": "🚢", "word": "Schiff", "id": 5 },
-    { "emoji": "🍫", "word": "Schokolade", "id": 6 },
-    { "emoji": "✂️", "word": "Schere", "id": 7 },
-    { "emoji": "🦋", "word": "Schmetterling", "id": 8 }
+    {
+        "id": "schal",
+        "word": "Schal",
+        "imageFile": "images/sch_initial/schal.png"
+    },
+    {
+        "id": "schatten",
+        "word": "Schatten",
+        "imageFile": "images/sch_initial/schatten.png"
+    },
+    {
+        "id": "schere",
+        "word": "Schere",
+        "imageFile": "images/sch_initial/schere.png"
+    },
+    {
+        "id": "schuh",
+        "word": "Schuh",
+        "imageFile": "images/sch_initial/schuh.png"
+    },
+    {
+        "id": "schule",
+        "word": "Schule",
+        "imageFile": "images/sch_initial/schule.png"
+    },
+    {
+        "id": "schiene",
+        "word": "Schiene",
+        "imageFile": "images/sch_initial/schiene.png"
+    },
+    {
+        "id": "schiff",
+        "word": "Schiff",
+        "imageFile": "images/sch_initial/schiff.png"
+    },
+    {
+        "id": "schokolade",
+        "word": "Schokolade",
+        "imageFile": "images/sch_initial/schokolade.png"
+    },
+    {
+        "id": "schaukel",
+        "word": "Schaukel",
+        "imageFile": "images/sch_initial/schaukel.png"
+    }
 ]
