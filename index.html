@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Plapperschlange</title>
-
-    <!-- Google Font Comfortaa einbinden -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         html {
             height: 100%;
@@ -22,7 +16,7 @@
         }
 
         body {
-            font-family: 'Comfortaa', sans-serif;
+            font-family: sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -36,11 +30,6 @@
             padding-left: env(safe-area-inset-left, 0px);
             padding-right: env(safe-area-inset-right, 0px);
             padding-bottom: env(safe-area-inset-bottom, 0px);
-        }
-
-        /* NEU: Sicherstellen, dass Formularelemente die Schriftart erben oder explizit bekommen */
-        button, select, input, textarea {
-            font-family: 'Comfortaa', sans-serif;
         }
 
         .menu-toggle-button {
@@ -234,23 +223,13 @@
         h1 {
             color: #94bbb5;
             margin-top: 0;
-            margin-bottom: 10px; /* Etwas reduziert, da der Untertitel jetzt Platz braucht */
-        }
-
-        /* NEUE REGEL FÜR DEN UNTERTITEL */
-        .game-subtitle {
-            font-size: 1.4em;  /* Mittlere Größe, etwas größer als der Set-Titel */
-            color: #beb898;       /* Ein etwas helleres Grau als der Haupttext */
-            margin-top: 0;
-            margin-bottom: 15px; /* Abstand zum Set-Titel */
-            font-weight: normal; /* Normales Schriftgewicht, nicht fett */
-            line-height: 1.4;   /* Für gute Lesbarkeit */
+            margin-bottom: 20px;
         }
 
         .container h2 { /* Wird für Set-Namen verwendet */
-            font-size: 0.9em;
+            font-size: 1.0em;
             color: #999999;
-            margin-top: 0; /* Wichtig, damit kein doppelter Abstand entsteht */
+            margin-top: 0;
             margin-bottom: 20px;
             min-height: 1.2em; /* Platzhalter für den Text */
         }
@@ -280,11 +259,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5em;
+            /* Font-size ist jetzt weniger relevant für Bilder, aber wir lassen es für ggf. Fallbacks */
+            font-size: 2.5em; 
             cursor: pointer;
             transition: transform 0.1s ease-out, background-color 0.1s ease-out, filter 0.3s ease-out;
             user-select: none;
+            overflow: hidden; /* Wichtig, damit Bilder mit object-fit: cover nicht überlappen */
         }
+        /* NEU: CSS für Bilder in den Kacheln */
+        .tile img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain; /* Stellt sicher, dass das ganze Bild sichtbar ist */
+            display: block;
+            margin: auto;
+        }
+
         .tile.active {
             background-color: #007bff;
             color: white;
@@ -365,7 +355,7 @@
             pointer-events: none;
         }
         .end-game-display.visible { opacity: 1; visibility: visible; transform: scale(1); pointer-events: auto; }
-        .end-game-display .emoji-icon { font-size: 4em; margin-bottom: 15px; }
+        .end-game-display .emoji-icon { font-size: 4em; margin-bottom: 15px; } /* Dieser Name könnte später angepasst werden, wenn keine Emojis mehr genutzt werden */
         .end-game-display .message { font-size: 1.1em; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; padding: 0 10px; }
         .end-game-display .play-again-button {
             background-color: #007bff; color: white; padding: 10px 20px; border: none;
@@ -411,7 +401,7 @@
 
 
         @media (max-width: 320px) {
-            .tile { font-size: 2em; }
+            /* .tile { font-size: 2em; } */ /* Weniger relevant für Bilder */
             .container {
                 padding-top: 30px; padding-right: 15px; padding-left: 15px; padding-bottom: 60px; margin-top: 50px;
             }
@@ -443,7 +433,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="sequenceLength">Anzahl der Wörter:</label>
+                    <label for="sequenceLength">Anzahl der Wörter/Bilder:</label> <!-- Text angepasst -->
                     <select id="sequenceLength">
                         <option value="1">1</option><option value="2">2</option>
                         <option value="3" selected>3</option><option value="4">4</option>
@@ -459,7 +449,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="wordSpacing">Abstand zwischen Wörtern (ms):</label>
+                    <label for="wordSpacing">Abstand zwischen Wörtern/Bildern (ms):</label> <!-- Text angepasst -->
                     <select id="wordSpacing">
                         <option value="100">100</option><option value="200">200</option>
                         <option value="300">300</option><option value="400">400</option>
@@ -469,7 +459,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="voiceSelect">Stimme:</label>
+                    <label for="voiceSelect">Stimme (für TTS):</label> <!-- Text angepasst, da TTS erstmal bleibt -->
                     <select id="voiceSelect"><option value="">Standard</option></select>
                 </div>
             </div>
@@ -485,12 +475,11 @@
 
     <div class="container">
         <h1>Plapperschlange</h1>
-        <p class="game-subtitle">Zischlaute</p> <!-- NEU EINGEFÜGT -->
         <h2 id="gameSetTitle">Wird geladen...</h2>
         <div class="game-board" id="gameBoard">
             <div class="board-overlay" id="boardOverlay"></div>
             <div class="end-game-display" id="endGameDisplay">
-                <div class="emoji-icon">👍</div>
+                <div class="emoji-icon">👍</div> <!-- Könnte man später in "feedback-icon" oder so umbenennen -->
                 <div class="message" id="endGameMessage"></div>
                 <button id="playAgainButton" class="play-again-button">Nochmal spielen?</button>
             </div>
@@ -509,23 +498,23 @@
         <div class="info-modal-content">
             <h2 id="infoModalTitle">Informationen für Eltern</h2>
             <p>
-                Liebe Eltern, mit der "Plapperschlange" können Sie spielerisch das <strong>auditive Gedächtnis</strong>, die <strong>Aussprache</strong>
+                Liebe Eltern, mit der "Plapperschlange" können Sie spielerisch das <strong>auditive Gedächtnis</strong>
                 und die <strong>Konzentrationsfähigkeit</strong> Ihres Kindes fördern. Dieses Spiel hilft dabei, gehörte Wortsequenzen
-                kurzzeitig zu speichern und korrekt wiederzugeben.
+                (oder gesehene Bildsequenzen mit zugehörigen Wörtern) kurzzeitig zu speichern und korrekt wiederzugeben. <!-- Text leicht angepasst -->
             </p>
             <p>So nutzen Sie die Einstellungen optimal:</p>
             <ul>
                 <li><strong>Spielset:</strong> Wählen Sie ein Set aus, das zum aktuellen Lernfokus oder den Interessen Ihres Kindes passt.</li>
-                <li><strong>Anzahl der Wörter:</strong> Beginnen Sie mit einer geringen Anzahl (z.B. 2 oder 3 Wörter),
+                <li><strong>Anzahl der Wörter/Bilder:</strong> Beginnen Sie mit einer geringen Anzahl (z.B. 2 oder 3),
                     besonders bei jüngeren Kindern oder wenn Ihr Kind das Spiel zum ersten Mal spielt.
                     Steigern Sie die Anzahl langsam, sobald Ihr Kind sicherer wird. Dies trainiert die Merkspanne.</li>
                 <li><strong>Durchgänge:</strong> Eine moderate Anzahl an Durchgängen (z.B. 5 bis 10) ist meist ideal,
                     um die Aufmerksamkeit aufrechtzuerhalten, ohne zu überfordern. Kurze, regelmäßige Spieleinheiten
                     sind oft effektiver als lange.</li>
-                <li><strong>Abstand zwischen Wörtern:</strong> Ein längerer Abstand (z.B. 500 bis 800 Millisekunden)
-                    gibt Ihrem Kind mehr Zeit, jedes Wort zu verarbeiten, bevor das nächste kommt. Experimentieren Sie,
+                <li><strong>Abstand zwischen Wörtern/Bildern:</strong> Ein längerer Abstand (z.B. 500 bis 800 Millisekunden)
+                    gibt Ihrem Kind mehr Zeit, jedes Element zu verarbeiten, bevor das nächste kommt. Experimentieren Sie,
                     welcher Abstand für Ihr Kind am besten passt. Ein kürzerer Abstand erhöht den Schwierigkeitsgrad.</li>
-                <li><strong>Stimme:</strong> Lassen Sie Ihr Kind eine Stimme auswählen, die es als angenehm empfindet.
+                <li><strong>Stimme:</strong> (Wenn Tondateien verwendet werden, ist diese Einstellung weniger relevant, es sei denn als Fallback) Lassen Sie Ihr Kind eine Stimme auswählen, die es als angenehm empfindet.
                     Eine vertraute oder klare Stimme kann das Zuhören erleichtern.</li>
             </ul>
             <p>
@@ -581,7 +570,7 @@
         const closeInfoModalButton = document.getElementById('closeInfoModalButton');
 
         // Spielzustandsvariablen
-        let EMOJIS_DATA = [];
+        let ITEMS_DATA = []; // Umbenannt von EMOJIS_DATA zu ITEMS_DATA
         let allAvailableSets = [];
         let currentSetInfo = null;
 
@@ -615,7 +604,10 @@
 
         async function initializeGameSets() {
             try {
-                const response = await fetch('sets_manifest.json');
+                // Dein Manifest Pfad war 'sets_manifest.json', wenn er im Hauptverzeichnis liegt.
+                // Wenn du die Set-JSONs in 'data/' hast, liegt das Manifest vielleicht auch dort?
+                // Ich lasse es erstmal bei 'sets_manifest.json' im Root.
+                const response = await fetch('sets_manifest.json'); 
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 allAvailableSets = await response.json();
 
@@ -663,18 +655,7 @@
             } else {
                 await loadSet(selectedSetId);
             }
-            // --- BEGINN DER ÄNDERUNG ---
-            if (settingsMenu.classList.contains('active')) {
-                // Wenn das Menü offen ist, sollen die Einstellungen editierbar bleiben,
-                // unabhängig vom gameActive-Status des (evtl. pausierten) Hintergrundspiels.
-                // Der "Start"-Button wird das Spiel dann ohnehin neu initialisieren.
-                updateSettingsAccess(false);
-            } else {
-                // Dieser Fall sollte nicht eintreten, da man das Set nur ändern kann, wenn das Menü offen ist.
-                // Aber zur Sicherheit die ursprüngliche Logik beibehalten.
-                updateSettingsAccess(gameActive);
-            }
-            // --- ENDE DER ÄNDERUNG ---
+            updateSettingsAccess(gameActive);
         }
 
         async function loadSet(setId) {
@@ -682,22 +663,23 @@
             if (!currentSetInfo) {
                 console.error("Ausgewähltes Set nicht gefunden:", setId);
                 gameSetTitleElement.textContent = "Fehler: Set nicht gefunden.";
-                EMOJIS_DATA = [];
+                ITEMS_DATA = [];
                 populateBoard();
                 return false;
             }
 
             try {
                 gameSetTitleElement.textContent = `Lade ${currentSetInfo.name}...`;
-                const response = await fetch(currentSetInfo.file);
+                const response = await fetch(currentSetInfo.file); // z.B. data/sch_initial.json
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status} für ${currentSetInfo.file}`);
-                EMOJIS_DATA = await response.json();
+                ITEMS_DATA = await response.json();
 
-                if (!Array.isArray(EMOJIS_DATA) || EMOJIS_DATA.length === 0) {
+                if (!Array.isArray(ITEMS_DATA) || ITEMS_DATA.length === 0) {
                      throw new Error(`Set-Datei ${currentSetInfo.file} ist leer oder nicht korrekt formatiert.`);
                 }
-                if (EMOJIS_DATA.some(item => typeof item.id === 'undefined' || !item.emoji || !item.word)) {
-                    throw new Error(`Ein oder mehrere Items im Set ${currentSetInfo.file} haben fehlende Eigenschaften (id, emoji, word).`);
+                // GEÄNDERT: Validierung für imageFile statt emoji
+                if (ITEMS_DATA.some(item => typeof item.id === 'undefined' || !item.imageFile || !item.word)) {
+                    throw new Error(`Ein oder mehrere Items im Set ${currentSetInfo.file} haben fehlende Eigenschaften (id, imageFile, word).`);
                 }
 
                 gameSetTitleElement.textContent = currentSetInfo.name;
@@ -706,7 +688,7 @@
             } catch (error) {
                 console.error(`Konnte Set "${currentSetInfo.name}" (${currentSetInfo.file}) nicht laden oder verarbeiten:`, error);
                 gameSetTitleElement.textContent = `Fehler: ${currentSetInfo.name} konnte nicht geladen werden.`;
-                EMOJIS_DATA = [];
+                ITEMS_DATA = [];
                 populateBoard();
                 return false;
             }
@@ -714,7 +696,7 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             await initializeGameSets();
-            initializeVoiceSelection();
+            initializeVoiceSelection(); // TTS bleibt vorerst als Fallback oder für andere Zwecke
 
             menuToggleButton.addEventListener('click', () => toggleMenu());
             closeMenuButton.addEventListener('click', () => toggleMenu(false));
@@ -794,16 +776,26 @@
             else speak("Standardstimme ausgewählt.");
         }
 
+        // GEÄNDERT: populateBoard zeigt jetzt Bilder an
         function populateBoard() {
             gameBoardElement.querySelectorAll('.tile').forEach(tile => tile.remove());
-            if (!EMOJIS_DATA || EMOJIS_DATA.length === 0) return;
 
-            EMOJIS_DATA.forEach(item => {
+            if (!ITEMS_DATA || ITEMS_DATA.length === 0) {
+                return;
+            }
+
+            ITEMS_DATA.forEach(item => {
                 const tile = document.createElement('div');
                 tile.classList.add('tile');
                 tile.dataset.id = item.id;
-                tile.textContent = item.emoji;
+
+                const img = document.createElement('img');
+                img.src = item.imageFile; // Pfad aus der JSON-Datei
+                img.alt = item.word;      // Alt-Text für Barrierefreiheit
+
+                tile.appendChild(img);
                 tile.addEventListener('click', () => handleTileClick(item.id));
+                
                 const referenceNode = boardOverlay || endGameDisplay;
                 if (referenceNode && referenceNode.parentNode === gameBoardElement) {
                      gameBoardElement.insertBefore(tile, referenceNode);
@@ -832,13 +824,13 @@
                 }
                 if (gameActive) {
                     disableBoardInteraction(true);
-                    updateSettingsAccess(false); // Wichtig: Einstellungen im Menü freigeben
+                    updateSettingsAccess(false);
                     gameWasPausedByMenu = true;
                     if ('speechSynthesis' in window && speechSynthesis.speaking) {
                          speechSynthesis.cancel();
                     }
                 } else {
-                     updateSettingsAccess(false); // Auch wenn kein Spiel aktiv ist, Menü-Settings freigeben
+                     updateSettingsAccess(false);
                 }
             } else {
                 settingsMenu.classList.remove('active');
@@ -849,16 +841,16 @@
                     if (!firstLoad) {
                          disableBoardInteraction(false);
                     }
-                    updateSettingsAccess(true); // Einstellungen wieder basierend auf Spielstatus sperren
+                    updateSettingsAccess(true);
                     gameWasPausedByMenu = false;
                 } else if (!gameActive && firstLoad) {
                      disableBoardInteraction(false);
                      gameBoardElement.classList.remove('initial-focus-menu');
                      firstLoad = false;
-                     updateSettingsAccess(false); // Einstellungen freigegeben lassen
+                     updateSettingsAccess(false);
                 } else if (!gameActive && !endGameDisplay.classList.contains('visible')) {
                      disableBoardInteraction(false);
-                     updateSettingsAccess(false); // Einstellungen freigegeben lassen
+                     updateSettingsAccess(false);
                 }
                  updateButtonStates(gameActive);
             }
@@ -876,7 +868,7 @@
 
             const selectedSetId = gameSetSelect.value;
             const loadSuccess = await loadSet(selectedSetId);
-            if (!loadSuccess || EMOJIS_DATA.length === 0) {
+            if (!loadSuccess || ITEMS_DATA.length === 0) {
                 gameSetTitleElement.textContent = "Fehler: Set konnte nicht für Spielstart geladen werden.";
                 toggleMenu(false);
                 return;
@@ -894,7 +886,7 @@
                  endGameDisplay.classList.remove('visible');
             }
             endGameMessageElement.textContent = '';
-            if (EMOJIS_DATA.length === 0) {
+            if (ITEMS_DATA.length === 0) {
                 console.error("Keine Set-Daten für 'Nochmal spielen' vorhanden.");
                 gameSetTitleElement.textContent = "Fehler: Bitte Set auswählen und starten.";
                 return;
@@ -905,8 +897,8 @@
 
         async function startGame() {
             if (gameActive) return;
-            if (EMOJIS_DATA.length === 0) {
-                console.error("Versuch, Spiel ohne EMOJI_DATA zu starten.");
+            if (ITEMS_DATA.length === 0) {
+                console.error("Versuch, Spiel ohne ITEMS_DATA zu starten.");
                 gameSetTitleElement.textContent = "Fehler: Bitte valides Set auswählen.";
                 updateSettingsAccess(false);
                 return;
@@ -977,7 +969,7 @@
                 if (defaultOption) { defaultOption.textContent = "TTS nicht unterstützt"; }
             } else if (gameIsRunning) {
                 voiceSelect.disabled = true;
-            } else { // gameIsRunning ist false (oder wir sind im Menü und haben es explizit auf false gesetzt)
+            } else {
                  voiceSelect.disabled = !voicesLoaded || !availableVoices.some(v => v.lang.startsWith('de'));
                   if (!voicesLoaded && voiceSelect.options.length > 0 && !voiceSelect.options[0].textContent.includes("geladen")) {
                      const defaultOption = voiceSelect.options[0];
@@ -1030,23 +1022,17 @@
 
         function generateRandomSequence(length) {
             const sequence = [];
-            if (!EMOJIS_DATA || EMOJIS_DATA.length === 0) {
-                console.error("Kann keine Sequenz generieren, EMOJIS_DATA ist leer.");
+            if (!ITEMS_DATA || ITEMS_DATA.length === 0) {
+                console.error("Kann keine Sequenz generieren, ITEMS_DATA ist leer.");
                 return [];
             }
-            const maxLength = EMOJIS_DATA.length;
+            const maxLength = ITEMS_DATA.length;
             const actualLength = Math.min(length, maxLength);
-            let availableIdsForThisSequence = EMOJIS_DATA.map(item => item.id);
 
+            const availableIds = ITEMS_DATA.map(item => item.id);
             for (let i = 0; i < actualLength; i++) {
-                if (availableIdsForThisSequence.length === 0) {
-                    console.warn("Nicht genügend einzigartige Items für die Sequenzlänge verfügbar.");
-                    break;
-                }
-                const randomIndex = Math.floor(Math.random() * availableIdsForThisSequence.length);
-                const selectedId = availableIdsForThisSequence[randomIndex];
-                sequence.push(selectedId);
-                availableIdsForThisSequence.splice(randomIndex, 1);
+                const randomIndex = Math.floor(Math.random() * availableIds.length);
+                sequence.push(availableIds[randomIndex]);
             }
             return sequence;
         }
@@ -1060,11 +1046,12 @@
             });
             for (const itemId of sequence) {
                 if ((!gameActive && !isRepeat)) break;
-                const itemData = EMOJIS_DATA.find(d => d.id === itemId);
+                const itemData = ITEMS_DATA.find(d => d.id === itemId);
                 const tileElement = gameBoardElement.querySelector(`.tile[data-id='${itemId}']`);
                 if (itemData && tileElement) {
                     tileElement.classList.add('active');
-                    await speak(itemData.word);
+                    // Hier wird noch TTS verwendet. Im nächsten Schritt ersetzen wir das durch Audio-Dateien.
+                    await speak(itemData.word); 
                     await sleep(100);
                     tileElement.classList.remove('active');
                 }
@@ -1085,6 +1072,7 @@
             await playSequence(currentSequence, true);
         }
 
+        // Die speak-Funktion bleibt vorerst für TTS, bis wir Audio-Dateien implementieren
         function speak(text) {
             return new Promise(async (resolve) => {
                 if (!('speechSynthesis' in window) || !text) { resolve(); return; }
