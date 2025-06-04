@@ -2,46 +2,46 @@
     {
         "id": "schal",
         "word": "Schal",
-        "imageFile": "images/sch_initial/schal.png"
+        "imageFile": "images/sch_initial/Schal.png"
     },
     {
         "id": "schatten",
         "word": "Schatten",
-        "imageFile": "images/sch_initial/schatten.png"
+        "imageFile": "images/sch_initial/Schatten.png"
     },
     {
         "id": "schere",
         "word": "Schere",
-        "imageFile": "images/sch_initial/schere.png"
+        "imageFile": "images/sch_initial/Schere.png"
     },
     {
         "id": "schuh",
         "word": "Schuh",
-        "imageFile": "images/sch_initial/schuh.png"
+        "imageFile": "images/sch_initial/Schuh.png"
     },
     {
         "id": "schule",
         "word": "Schule",
-        "imageFile": "images/sch_initial/schule.png"
+        "imageFile": "images/sch_initial/Schule.png"
     },
     {
         "id": "schiene",
         "word": "Schiene",
-        "imageFile": "images/sch_initial/schiene.png"
+        "imageFile": "images/sch_initial/Schiene.png"
     },
     {
         "id": "schiff",
         "word": "Schiff",
-        "imageFile": "images/sch_initial/schiff.png"
+        "imageFile": "images/sch_initial/Schiff.png"
     },
     {
         "id": "schokolade",
         "word": "Schokolade",
-        "imageFile": "images/sch_initial/schokolade.png"
+        "imageFile": "images/sch_initial/Schokolade.png"
     },
     {
         "id": "schaukel",
         "word": "Schaukel",
-        "imageFile": "images/sch_initial/schaukel.png"
+        "imageFile": "images/sch_initial/Schaukel.png"
     }
 ]
