@@ -2,46 +2,55 @@
     {
         "id": "schal",
         "word": "Schal",
-        "imageFile": "images/sch_initial/Schal.png"
+        "imageFile": "images/sch_initial/Schal.png",
+        "audioFile": "sounds/sch_initial/Schal.mp3"
     },
     {
         "id": "schatten",
         "word": "Schatten",
-        "imageFile": "images/sch_initial/Schatten.png"
+        "imageFile": "images/sch_initial/Schatten.png",
+        "audioFile": "sounds/sch_initial/Schatten.mp3"
     },
     {
         "id": "schere",
         "word": "Schere",
-        "imageFile": "images/sch_initial/Schere.png"
+        "imageFile": "images/sch_initial/Schere.png",
+        "audioFile": "sounds/sch_initial/Schere.mp3"
     },
     {
         "id": "schuh",
         "word": "Schuh",
-        "imageFile": "images/sch_initial/Schuh.png"
+        "imageFile": "images/sch_initial/Schuh.png",
+        "audioFile": "sounds/sch_initial/Schuh.mp3"
     },
     {
         "id": "schule",
         "word": "Schule",
-        "imageFile": "images/sch_initial/Schule.png"
+        "imageFile": "images/sch_initial/Schule.png",
+        "audioFile": "sounds/sch_initial/Schule.mp3"
     },
     {
         "id": "schiene",
         "word": "Schiene",
-        "imageFile": "images/sch_initial/Schiene.png"
+        "imageFile": "images/sch_initial/Schiene.png",
+        "audioFile": "sounds/sch_initial/Schiene.mp3"
     },
     {
         "id": "schiff",
         "word": "Schiff",
-        "imageFile": "images/sch_initial/Schiff.png"
+        "imageFile": "images/sch_initial/Schiff.png",
+        "audioFile": "sounds/sch_initial/Schiff.mp3"
     },
     {
         "id": "schokolade",
         "word": "Schokolade",
-        "imageFile": "images/sch_initial/Schokolade.png"
+        "imageFile": "images/sch_initial/Schokolade.png",
+        "audioFile": "sounds/sch_initial/Schokolade.mp3"
     },
     {
         "id": "schaukel",
         "word": "Schaukel",
-        "imageFile": "images/sch_initial/Schaukel.png"
+        "imageFile": "images/sch_initial/Schaukel.png",
+        "audioFile": "sounds/sch_initial/Schaukel.mp3"
     }
 ]
