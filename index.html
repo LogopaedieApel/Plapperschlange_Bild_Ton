@@ -259,18 +259,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Font-size ist jetzt weniger relevant für Bilder, aber wir lassen es für ggf. Fallbacks */
             font-size: 2.5em; 
             cursor: pointer;
             transition: transform 0.1s ease-out, background-color 0.1s ease-out, filter 0.3s ease-out;
             user-select: none;
-            overflow: hidden; /* Wichtig, damit Bilder mit object-fit: cover nicht überlappen */
+            overflow: hidden;
         }
-        /* NEU: CSS für Bilder in den Kacheln */
         .tile img {
             max-width: 90%;
             max-height: 90%;
-            object-fit: contain; /* Stellt sicher, dass das ganze Bild sichtbar ist */
+            object-fit: contain;
             display: block;
             margin: auto;
         }
@@ -355,7 +353,7 @@
             pointer-events: none;
         }
         .end-game-display.visible { opacity: 1; visibility: visible; transform: scale(1); pointer-events: auto; }
-        .end-game-display .emoji-icon { font-size: 4em; margin-bottom: 15px; } /* Dieser Name könnte später angepasst werden, wenn keine Emojis mehr genutzt werden */
+        .end-game-display .emoji-icon { font-size: 4em; margin-bottom: 15px; }
         .end-game-display .message { font-size: 1.1em; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; padding: 0 10px; }
         .end-game-display .play-again-button {
             background-color: #007bff; color: white; padding: 10px 20px; border: none;
@@ -401,7 +399,6 @@
 
 
         @media (max-width: 320px) {
-            /* .tile { font-size: 2em; } */ /* Weniger relevant für Bilder */
             .container {
                 padding-top: 30px; padding-right: 15px; padding-left: 15px; padding-bottom: 60px; margin-top: 50px;
             }
@@ -433,7 +430,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="sequenceLength">Anzahl der Wörter/Bilder:</label> <!-- Text angepasst -->
+                    <label for="sequenceLength">Anzahl der Elemente:</label>
                     <select id="sequenceLength">
                         <option value="1">1</option><option value="2">2</option>
                         <option value="3" selected>3</option><option value="4">4</option>
@@ -449,7 +446,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="wordSpacing">Abstand zwischen Wörtern/Bildern (ms):</label> <!-- Text angepasst -->
+                    <label for="wordSpacing">Abstand zwischen Elementen (ms):</label>
                     <select id="wordSpacing">
                         <option value="100">100</option><option value="200">200</option>
                         <option value="300">300</option><option value="400">400</option>
@@ -459,7 +456,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="voiceSelect">Stimme (für TTS):</label> <!-- Text angepasst, da TTS erstmal bleibt -->
+                    <label for="voiceSelect">Stimme (für Systemnachrichten):</label>
                     <select id="voiceSelect"><option value="">Standard</option></select>
                 </div>
             </div>
@@ -479,7 +476,7 @@
         <div class="game-board" id="gameBoard">
             <div class="board-overlay" id="boardOverlay"></div>
             <div class="end-game-display" id="endGameDisplay">
-                <div class="emoji-icon">👍</div> <!-- Könnte man später in "feedback-icon" oder so umbenennen -->
+                <div class="emoji-icon">👍</div>
                 <div class="message" id="endGameMessage"></div>
                 <button id="playAgainButton" class="play-again-button">Nochmal spielen?</button>
             </div>
@@ -500,22 +497,21 @@
             <p>
                 Liebe Eltern, mit der "Plapperschlange" können Sie spielerisch das <strong>auditive Gedächtnis</strong>
                 und die <strong>Konzentrationsfähigkeit</strong> Ihres Kindes fördern. Dieses Spiel hilft dabei, gehörte Wortsequenzen
-                (oder gesehene Bildsequenzen mit zugehörigen Wörtern) kurzzeitig zu speichern und korrekt wiederzugeben. <!-- Text leicht angepasst -->
+                (oder gesehene Bildsequenzen mit zugehörigen Tondateien) kurzzeitig zu speichern und korrekt wiederzugeben.
             </p>
             <p>So nutzen Sie die Einstellungen optimal:</p>
             <ul>
                 <li><strong>Spielset:</strong> Wählen Sie ein Set aus, das zum aktuellen Lernfokus oder den Interessen Ihres Kindes passt.</li>
-                <li><strong>Anzahl der Wörter/Bilder:</strong> Beginnen Sie mit einer geringen Anzahl (z.B. 2 oder 3),
+                <li><strong>Anzahl der Elemente:</strong> Beginnen Sie mit einer geringen Anzahl (z.B. 2 oder 3),
                     besonders bei jüngeren Kindern oder wenn Ihr Kind das Spiel zum ersten Mal spielt.
                     Steigern Sie die Anzahl langsam, sobald Ihr Kind sicherer wird. Dies trainiert die Merkspanne.</li>
                 <li><strong>Durchgänge:</strong> Eine moderate Anzahl an Durchgängen (z.B. 5 bis 10) ist meist ideal,
                     um die Aufmerksamkeit aufrechtzuerhalten, ohne zu überfordern. Kurze, regelmäßige Spieleinheiten
                     sind oft effektiver als lange.</li>
-                <li><strong>Abstand zwischen Wörtern/Bildern:</strong> Ein längerer Abstand (z.B. 500 bis 800 Millisekunden)
+                <li><strong>Abstand zwischen Elementen:</strong> Ein längerer Abstand (z.B. 500 bis 800 Millisekunden)
                     gibt Ihrem Kind mehr Zeit, jedes Element zu verarbeiten, bevor das nächste kommt. Experimentieren Sie,
                     welcher Abstand für Ihr Kind am besten passt. Ein kürzerer Abstand erhöht den Schwierigkeitsgrad.</li>
-                <li><strong>Stimme:</strong> (Wenn Tondateien verwendet werden, ist diese Einstellung weniger relevant, es sei denn als Fallback) Lassen Sie Ihr Kind eine Stimme auswählen, die es als angenehm empfindet.
-                    Eine vertraute oder klare Stimme kann das Zuhören erleichtern.</li>
+                <li><strong>Stimme:</strong> Diese Einstellung ist primär für Systemnachrichten relevant, wenn Tondateien für die Spielinhalte verwendet werden.</li>
             </ul>
             <p>
                 Beobachten Sie Ihr Kind beim Spielen: Hat es Spaß? Ist es frustriert oder unterfordert?
@@ -570,7 +566,7 @@
         const closeInfoModalButton = document.getElementById('closeInfoModalButton');
 
         // Spielzustandsvariablen
-        let ITEMS_DATA = []; // Umbenannt von EMOJIS_DATA zu ITEMS_DATA
+        let ITEMS_DATA = [];
         let allAvailableSets = [];
         let currentSetInfo = null;
 
@@ -589,6 +585,7 @@
         const MAX_ATTEMPTS_PER_ROUND = 2;
         let gameWasPausedByMenu = false;
         let firstLoad = true;
+        let currentAudioElement = null; // Für die Verwaltung der aktuellen Audiowiedergabe
 
         async function ensureAudioContext() {
             if (!audioContext || audioContext.state === 'closed') {
@@ -604,9 +601,6 @@
 
         async function initializeGameSets() {
             try {
-                // Dein Manifest Pfad war 'sets_manifest.json', wenn er im Hauptverzeichnis liegt.
-                // Wenn du die Set-JSONs in 'data/' hast, liegt das Manifest vielleicht auch dort?
-                // Ich lasse es erstmal bei 'sets_manifest.json' im Root.
                 const response = await fetch('sets_manifest.json'); 
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 allAvailableSets = await response.json();
@@ -670,16 +664,30 @@
 
             try {
                 gameSetTitleElement.textContent = `Lade ${currentSetInfo.name}...`;
-                const response = await fetch(currentSetInfo.file); // z.B. data/sch_initial.json
+                const response = await fetch(currentSetInfo.file);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status} für ${currentSetInfo.file}`);
                 ITEMS_DATA = await response.json();
 
                 if (!Array.isArray(ITEMS_DATA) || ITEMS_DATA.length === 0) {
                      throw new Error(`Set-Datei ${currentSetInfo.file} ist leer oder nicht korrekt formatiert.`);
                 }
-                // GEÄNDERT: Validierung für imageFile statt emoji
-                if (ITEMS_DATA.some(item => typeof item.id === 'undefined' || !item.imageFile || !item.word)) {
-                    throw new Error(`Ein oder mehrere Items im Set ${currentSetInfo.file} haben fehlende Eigenschaften (id, imageFile, word).`);
+                // GEÄNDERT: Validierung für imageFile, word UND audioFile
+                if (ITEMS_DATA.some(item => typeof item.id === 'undefined' || !item.imageFile || !item.word || !item.audioFile)) {
+                    // Fallback für Sets ohne audioFile (wenn man alte Sets behalten will, die nur TTS nutzen)
+                    // In diesem Fall gehen wir davon aus, dass alle neuen Sets audioFile haben sollen.
+                    // Wenn ein Set gemischt sein soll, müsste die Logik in playSequence komplexer werden.
+                    // Für jetzt: Strenger Check.
+                     if (ITEMS_DATA.some(item => !item.audioFile && item.imageFile && item.word)) {
+                        console.warn(`Set ${currentSetInfo.file} enthält Elemente ohne 'audioFile'. TTS wird als Fallback verwendet, falls 'playAudio' fehlschlägt oder nicht aufgerufen wird.`);
+                        // Hier könnte man entscheiden, ob das Set trotzdem geladen wird oder ein Fehler geworfen wird.
+                        // Wir lassen es erstmal zu und verlassen uns auf den Fallback in playSequence.
+                        // Aber die obige some-Prüfung wird fehlschlagen, wenn *einige* audioFile haben und andere nicht.
+                        // Um das Problem eleganter zu lösen, entfernen wir die audioFile-Pflicht hier und prüfen in playSequence.
+                        // ODER: Wir machen eine separate Prüfung für audioFile optional.
+                        // FÜR JETZT: Wir gehen davon aus, ein modernes Set hat ALLES.
+                        // Daher ist die folgende Fehlermeldung korrekt, wenn audioFile fehlt.
+                         throw new Error(`Ein oder mehrere Items im Set ${currentSetInfo.file} haben fehlende Eigenschaften (id, imageFile, word, audioFile).`);
+                     }
                 }
 
                 gameSetTitleElement.textContent = currentSetInfo.name;
@@ -696,7 +704,7 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             await initializeGameSets();
-            initializeVoiceSelection(); // TTS bleibt vorerst als Fallback oder für andere Zwecke
+            initializeVoiceSelection();
 
             menuToggleButton.addEventListener('click', () => toggleMenu());
             closeMenuButton.addEventListener('click', () => toggleMenu(false));
@@ -772,30 +780,23 @@
                 selectedVoice = availableVoices.find(voice => voice.voiceURI === selectedURI);
                 if (selectedVoice) localStorage.setItem('selectedVoiceURI', selectedVoice.voiceURI);
             }
-            if (selectedVoice) speak(`Stimme ${selectedVoice.name} ausgewählt.`);
-            else speak("Standardstimme ausgewählt.");
+            // Nur Systemnachrichten per TTS ausgeben
+            speak(`Stimme für Systemnachrichten ${selectedVoice ? selectedVoice.name : 'Standard'} ausgewählt.`);
         }
 
-        // GEÄNDERT: populateBoard zeigt jetzt Bilder an
         function populateBoard() {
             gameBoardElement.querySelectorAll('.tile').forEach(tile => tile.remove());
-
-            if (!ITEMS_DATA || ITEMS_DATA.length === 0) {
-                return;
-            }
+            if (!ITEMS_DATA || ITEMS_DATA.length === 0) return;
 
             ITEMS_DATA.forEach(item => {
                 const tile = document.createElement('div');
                 tile.classList.add('tile');
                 tile.dataset.id = item.id;
-
                 const img = document.createElement('img');
-                img.src = item.imageFile; // Pfad aus der JSON-Datei
-                img.alt = item.word;      // Alt-Text für Barrierefreiheit
-
+                img.src = item.imageFile;
+                img.alt = item.word;
                 tile.appendChild(img);
                 tile.addEventListener('click', () => handleTileClick(item.id));
-                
                 const referenceNode = boardOverlay || endGameDisplay;
                 if (referenceNode && referenceNode.parentNode === gameBoardElement) {
                      gameBoardElement.insertBefore(tile, referenceNode);
@@ -803,6 +804,17 @@
                      gameBoardElement.appendChild(tile);
                 }
             });
+        }
+
+        function stopCurrentAudio() {
+            if (currentAudioElement) {
+                currentAudioElement.pause();
+                currentAudioElement.currentTime = 0; // Zurücksetzen
+                // Event-Listener entfernen, um Speicherlecks zu vermeiden
+                currentAudioElement.onended = null;
+                currentAudioElement.onerror = null;
+                currentAudioElement = null;
+            }
         }
 
         function toggleMenu(forceOpen = null) {
@@ -813,6 +825,11 @@
                 infoModal.classList.remove('visible');
                 infoModal.setAttribute('aria-hidden', 'true');
             }
+            stopCurrentAudio(); // Aktuelle Audiowiedergabe stoppen, wenn Menü geöffnet/geschlossen wird
+            if ('speechSynthesis' in window && speechSynthesis.speaking) {
+                 speechSynthesis.cancel();
+            }
+
 
             if (show) {
                 settingsMenu.classList.add('active');
@@ -826,9 +843,6 @@
                     disableBoardInteraction(true);
                     updateSettingsAccess(false);
                     gameWasPausedByMenu = true;
-                    if ('speechSynthesis' in window && speechSynthesis.speaking) {
-                         speechSynthesis.cancel();
-                    }
                 } else {
                      updateSettingsAccess(false);
                 }
@@ -905,7 +919,7 @@
             }
             gameActive = true;
             endGameMessageElement.textContent = '';
-            await ensureAudioContext();
+            await ensureAudioContext(); // Für Soundeffekte, nicht primär für Item-Audio
             sequenceLength = parseInt(sequenceLengthSelect.value);
             totalRounds = parseInt(numRoundsSelect.value);
             wordSpacing = parseInt(wordSpacingSelect.value);
@@ -922,6 +936,13 @@
             gameActive = false;
             gameWasPausedByMenu = false;
             currentSequence = []; playerSequence = [];
+
+            stopCurrentAudio(); // Audio stoppen
+            if ('speechSynthesis' in window && speechSynthesis.speaking) { // TTS stoppen
+                 speechSynthesis.cancel();
+                 await sleep(50);
+            }
+
             if (!settingsMenu.classList.contains('active')) {
                 disableBoardInteraction(false);
             }
@@ -942,10 +963,6 @@
                  endGameDisplay.querySelector('.emoji-icon').style.display = '';
                  playAgainButtonElement.style.display = '';
             }
-            if ('speechSynthesis' in window && speechSynthesis.speaking) {
-                 speechSynthesis.cancel();
-                 await sleep(50);
-            }
         }
 
         function updateButtonStates(isPlaying) {
@@ -962,15 +979,14 @@
 
             const ttsGenerallyAvailable = 'speechSynthesis' in window;
             const voicesLoaded = availableVoices.length > 0;
-
+             // Voice select ist nun eher für System-TTS, daher seltener deaktiviert
             if (!ttsGenerallyAvailable) {
                 voiceSelect.disabled = true;
                 const defaultOption = voiceSelect.querySelector('option[value=""]');
                 if (defaultOption) { defaultOption.textContent = "TTS nicht unterstützt"; }
-            } else if (gameIsRunning) {
-                voiceSelect.disabled = true;
             } else {
                  voiceSelect.disabled = !voicesLoaded || !availableVoices.some(v => v.lang.startsWith('de'));
+                 // Logik für das Anzeigen des Ladestatus etc. bleibt
                   if (!voicesLoaded && voiceSelect.options.length > 0 && !voiceSelect.options[0].textContent.includes("geladen")) {
                      const defaultOption = voiceSelect.options[0];
                      if (defaultOption && defaultOption.value === "") { defaultOption.textContent = "Stimmen werden geladen..."; }
@@ -1028,7 +1044,6 @@
             }
             const maxLength = ITEMS_DATA.length;
             const actualLength = Math.min(length, maxLength);
-
             const availableIds = ITEMS_DATA.map(item => item.id);
             for (let i = 0; i < actualLength; i++) {
                 const randomIndex = Math.floor(Math.random() * availableIds.length);
@@ -1044,22 +1059,31 @@
             gameBoardElement.querySelectorAll('.tile.active, .tile.error-input').forEach(t => {
                 t.classList.remove('active'); t.classList.remove('error-input');
             });
+
             for (const itemId of sequence) {
-                if ((!gameActive && !isRepeat)) break;
+                if ((!gameActive && !isRepeat) || gameWasPausedByMenu) break; // Überprüfung vor jedem Element
                 const itemData = ITEMS_DATA.find(d => d.id === itemId);
                 const tileElement = gameBoardElement.querySelector(`.tile[data-id='${itemId}']`);
                 if (itemData && tileElement) {
                     tileElement.classList.add('active');
-                    // Hier wird noch TTS verwendet. Im nächsten Schritt ersetzen wir das durch Audio-Dateien.
-                    await speak(itemData.word); 
-                    await sleep(100);
+                    
+                    // NEU: Audio abspielen oder auf TTS zurückfallen
+                    if (itemData.audioFile) {
+                        await playAudio(itemData.audioFile);
+                    } else if (itemData.word) { // Fallback zu TTS, falls kein audioFile vorhanden
+                        console.warn(`Kein audioFile für Item ${itemId}, verwende TTS für "${itemData.word}"`);
+                        await speak(itemData.word);
+                    }
+                    
+                    await sleep(100); // Kurze Pause nach dem Sound/Sprechen
                     tileElement.classList.remove('active');
                 }
                 if (gameActive || isRepeat) {
+                     if (gameWasPausedByMenu) break; // Erneute Prüfung
                      await sleep(wordSpacing);
                 } else { break; }
             }
-            if ((gameActive && !gameWasPausedByMenu) || isRepeat) {
+            if (((gameActive && !gameWasPausedByMenu) || isRepeat) && !gameWasPausedByMenu) {
                  disableBoardInteraction(false);
             }
             updateButtonStates(gameActive);
@@ -1069,17 +1093,52 @@
             const isBoardBlocked = boardOverlay.style.display === 'block' && !gameWasPausedByMenu;
             if (!gameActive || currentSequence.length === 0 || isBoardBlocked) return;
             playerSequence = [];
+            stopCurrentAudio(); // Vorheriges Audio stoppen, falls es noch lief
+            if ('speechSynthesis' in window && speechSynthesis.speaking) speechSynthesis.cancel();
             await playSequence(currentSequence, true);
         }
 
-        // Die speak-Funktion bleibt vorerst für TTS, bis wir Audio-Dateien implementieren
+        // NEUE FUNKTION: Spielt eine Audiodatei ab
+        function playAudio(audioSrc) {
+            return new Promise((resolve) => {
+                if (!audioSrc) {
+                    console.warn("playAudio aufgerufen ohne audioSrc.");
+                    resolve();
+                    return;
+                }
+                stopCurrentAudio(); // Stoppt vorher laufendes Audio
+
+                currentAudioElement = new Audio(audioSrc);
+                currentAudioElement.onended = () => {
+                    currentAudioElement = null; // Referenz löschen
+                    resolve();
+                };
+                currentAudioElement.onerror = (e) => {
+                    console.error('Audio Playback Error:', e, "Src:", audioSrc);
+                    currentAudioElement = null; // Referenz löschen
+                    resolve(); // Trotz Fehler resolven, um die Sequenz nicht zu blockieren
+                };
+                currentAudioElement.play().catch(error => {
+                    console.error("Fehler beim Starten der Audiowiedergabe für:", audioSrc, error);
+                    // Besonders relevant für Autoplay-Policy-Fehler, wenn Nutzer noch nicht interagiert hat.
+                    // Im Spielkontext sollte Interaktion aber schon erfolgt sein.
+                    currentAudioElement = null;
+                    resolve();
+                });
+            });
+        }
+
+        // TTS-Funktion für Systemnachrichten oder als Fallback
         function speak(text) {
             return new Promise(async (resolve) => {
                 if (!('speechSynthesis' in window) || !text) { resolve(); return; }
+                
+                stopCurrentAudio(); // Stoppt Item-Audio, falls TTS sprechen soll
                 if (speechSynthesis.speaking) {
                     speechSynthesis.cancel();
-                    await sleep(50);
+                    await sleep(50); // Gibt cancel Zeit zu wirken
                 }
+
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'de-DE';
                 if (selectedVoice) {
@@ -1099,6 +1158,7 @@
         async function playClickSound() {
             const ctx = await ensureAudioContext();
             if (!ctx) { return; }
+            // ... (Rest der Funktion bleibt gleich)
             const clickTime = ctx.currentTime;
             const oscillator = ctx.createOscillator();
             oscillator.type = 'triangle';
@@ -1114,6 +1174,7 @@
         async function playErrorSound() {
             const ctx = await ensureAudioContext();
             if (!ctx) { return; }
+            // ... (Rest der Funktion bleibt gleich)
             const oscillator = ctx.createOscillator();
             const gainNode = ctx.createGain();
             oscillator.connect(gainNode); gainNode.connect(ctx.destination);
@@ -1172,7 +1233,9 @@
                 } else {
                     playerSequence = [];
                     await sleep(1000);
-                    await playSequence(currentSequence, true);
+                    stopCurrentAudio(); // Vorheriges Audio stoppen
+                    if ('speechSynthesis' in window && speechSynthesis.speaking) speechSynthesis.cancel();
+                    await playSequence(currentSequence, true); // Sequenz wiederholen
                 }
             }
         }
@@ -1198,6 +1261,7 @@
         async function playFixedRewardMelody(isRoundSuccessSound = false) {
             const ctx = await ensureAudioContext();
             if (!ctx) { return; }
+            // ... (Rest der Funktion bleibt gleich)
             let melody; let baseNoteDuration; let basePauseBetweenNotes; let gainValue;
             if (isRoundSuccessSound) {
                 melody = [NOTE.C5, NOTE.E5, NOTE.G5];
