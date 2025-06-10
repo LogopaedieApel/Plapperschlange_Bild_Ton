@@ -1,9 +1,9 @@
 [
     {
-        "id": "salat",
-        "word": "Salat",
-        "imageFile": "images/s_initial/Salat.png",
-        "audioFile": "sounds/s_initial/Salat.mp3"
+        "id": "sand",
+        "word": "Sand",
+        "imageFile": "images/s_initial/Sand.png",
+        "audioFile": "sounds/s_initial/Sand.mp3"
     },
     {
         "id": "saft",
@@ -18,28 +18,22 @@
         "audioFile": "sounds/s_initial/Saege.mp3"
     },
     {
+        "id": "singen",
+        "word": "singen",
+        "imageFile": "images/s_initial/singen.png",
+        "audioFile": "sounds/s_initial/singen.mp3"
+    },
+    {
         "id": "segelboot",
         "word": "Segelboot",
         "imageFile": "images/s_initial/Segelboot.png",
         "audioFile": "sounds/s_initial/Segelboot.mp3"
     },
     {
-        "id": "seife",
-        "word": "Seife",
-        "imageFile": "images/s_initial/Seife.png",
-        "audioFile": "sounds/s_initial/Seife.mp3"
-    },
-    {
-        "id": "sonne",
-        "word": "Sonne",
-        "imageFile": "images/s_initial/Sonne.png",
-        "audioFile": "sounds/s_initial/Sonne.mp3"
-    },
-    {
-        "id": "superman",
-        "word": "Superman",
-        "imageFile": "images/s_initial/Superman.png",
-        "audioFile": "sounds/s_initial/Superman.mp3"
+        "id": "socken",
+        "word": "Socken",
+        "imageFile": "images/s_initial/Socken.png",
+        "audioFile": "sounds/s_initial/Socken.mp3"
     },
     {
         "id": "suppe",
@@ -48,9 +42,15 @@
         "audioFile": "sounds/s_initial/Suppe.mp3"
     },
     {
-        "id": "socken",
-        "word": "Socken",
-        "imageFile": "images/s_initial/Socken.png",
-        "audioFile": "sounds/s_initial/Socken.mp3"
+        "id": "sommer",
+        "word": "Sommer",
+        "imageFile": "images/s_initial/Sommer.png",
+        "audioFile": "sounds/s_initial/Sommer.mp3"
+    },
+    {
+        "id": "sofa",
+        "word": "Sofa",
+        "imageFile": "images/s_initial/Sofa.png",
+        "audioFile": "sounds/s_initial/Sofa.mp3"
     }
 ]
