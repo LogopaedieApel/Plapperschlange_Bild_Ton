@@ -2,55 +2,55 @@
     {
         "id": "dusche",
         "word": "Dusche",
-        "imageFile": "images/sch_medial_final/Dusche.png",
-        "audioFile": "sounds/sch_medial_final/Dusche.mp3"
+        "imageFile": "images/sch_medial/Dusche.png",
+        "audioFile": "sounds/sch_medial/Dusche.mp3"
     },
     {
         "id": "flasche",
         "word": "Flasche",
-        "imageFile": "images/sch_medial_final/Flasche.png",
-        "audioFile": "sounds/sch_medial_final/Flasche.mp3"
+        "imageFile": "images/sch_medial/Flasche.png",
+        "audioFile": "sounds/sch_medial/Flasche.mp3"
     },
     {
         "id": "kirschen",
         "word": "Kirschen",
-        "imageFile": "images/sch_medial_final/Kirschen.png",
-        "audioFile": "sounds/sch_medial_final/Kirschen.mp3"
+        "imageFile": "images/sch_medial/Kirschen.png",
+        "audioFile": "sounds/sch_medial/Kirschen.mp3"
     },
     {
         "id": "lutscher",
         "word": "Lutscher",
-        "imageFile": "images/tsch_medial_final/Lutscher.png",
-        "audioFile": "sounds/tsch_medial_final/Lutscher.mp3"
+        "imageFile": "images/sch_medial/Lutscher.png",
+        "audioFile": "sounds/sch_medial/Lutscher.mp3"
     },
     {
         "id": "muschel",
         "word": "Muschel",
-        "imageFile": "images/sch_medial_final/Muschel.png",
-        "audioFile": "sounds/sch_medial_final/Muschel.mp3"
+        "imageFile": "images/sch_medial/Muschel.png",
+        "audioFile": "sounds/sch_medial/Muschel.mp3"
     },
     {
         "id": "regenschirm",
         "word": "Regenschirm",
-        "imageFile": "images/sch_medial_final/Regenschirm.png",
-        "audioFile": "sounds/sch_medial_final/Regenschirm.mp3"
+        "imageFile": "images/sch_medial/Regenschirm.png",
+        "audioFile": "sounds/sch_medial/Regenschirm.mp3"
     },
     {
         "id": "geschenk",
         "word": "Geschenk",
-        "imageFile": "images/sch_medial_final/Geschenk.png",
-        "audioFile": "sounds/sch_medial_final/Geschenk.mp3"
+        "imageFile": "images/sch_medial/Geschenk.png",
+        "audioFile": "sounds/sch_medial/Geschenk.mp3"
     },
     {
         "id": "rutsche",
         "word": "Rutsche",
-        "imageFile": "images/tsch_medial_final/Rutsche.png",
-        "audioFile": "sounds/tsch_medial_final/Rutsche.mp3"
+        "imageFile": "images/sch_medial/Rutsche.png",
+        "audioFile": "sounds/sch_medial/Rutsche.mp3"
     },
     {
         "id": "tasche",
         "word": "Tasche",
-        "imageFile": "images/sch_medial_final/Tasche.png",
-        "audioFile": "sounds/sch_medial_final/Tasche.mp3"
+        "imageFile": "images/sch_medial/Tasche.png",
+        "audioFile": "sounds/sch_medial/Tasche.mp3"
     }
 ]
