@@ -1,11 +1,56 @@
 [
-    { "emoji": "🥗", "word": "Salat", "id": 0 },
-    { "emoji": "🧃", "word": "Saft", "id": 1 },
-    { "emoji": "🪚", "word": "Säge", "id": 2 },
-    { "emoji": "⛵", "word": "Segelboot", "id": 3 },
-    { "emoji": "🧴", "word": "Seife", "id": 4 },
-    { "emoji": "☀️", "word": "Sonne", "id": 5 },
-    { "emoji": "🦸", "word": "Superman", "id": 6 },
-    { "emoji": "🍲", "word": "Suppe", "id": 7 },
-    { "emoji": "🧦", "word": "Socken", "id": 8 }
+    {
+        "id": "salat",
+        "word": "Salat",
+        "imageFile": "images/s_initial/Salat.png",
+        "audioFile": "sounds/s_initial/Salat.mp3"
+    },
+    {
+        "id": "saft",
+        "word": "Saft",
+        "imageFile": "images/s_initial/Saft.png",
+        "audioFile": "sounds/s_initial/Saft.mp3"
+    },
+    {
+        "id": "saege",
+        "word": "Säge",
+        "imageFile": "images/s_initial/Saege.png",
+        "audioFile": "sounds/s_initial/Saege.mp3"
+    },
+    {
+        "id": "segelboot",
+        "word": "Segelboot",
+        "imageFile": "images/s_initial/Segelboot.png",
+        "audioFile": "sounds/s_initial/Segelboot.mp3"
+    },
+    {
+        "id": "seife",
+        "word": "Seife",
+        "imageFile": "images/s_initial/Seife.png",
+        "audioFile": "sounds/s_initial/Seife.mp3"
+    },
+    {
+        "id": "sonne",
+        "word": "Sonne",
+        "imageFile": "images/s_initial/Sonne.png",
+        "audioFile": "sounds/s_initial/Sonne.mp3"
+    },
+    {
+        "id": "superman",
+        "word": "Superman",
+        "imageFile": "images/s_initial/Superman.png",
+        "audioFile": "sounds/s_initial/Superman.mp3"
+    },
+    {
+        "id": "suppe",
+        "word": "Suppe",
+        "imageFile": "images/s_initial/Suppe.png",
+        "audioFile": "sounds/s_initial/Suppe.mp3"
+    },
+    {
+        "id": "socken",
+        "word": "Socken",
+        "imageFile": "images/s_initial/Socken.png",
+        "audioFile": "sounds/s_initial/Socken.mp3"
+    }
 ]
