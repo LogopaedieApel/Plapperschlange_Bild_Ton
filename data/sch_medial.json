@@ -48,9 +48,9 @@
         "audioFile": "sounds/tsch_medial_final/Rutsche.mp3"
     },
     {
-        "id": "taschen",
-        "word": "Taschen",
-        "imageFile": "images/sch_medial_final/Taschen.png",
-        "audioFile": "sounds/sch_medial_final/Taschen.mp3"
+        "id": "tasche",
+        "word": "Tasche",
+        "imageFile": "images/sch_medial_final/Tasche.png",
+        "audioFile": "sounds/sch_medial_final/Tasche.mp3"
     }
 ]
