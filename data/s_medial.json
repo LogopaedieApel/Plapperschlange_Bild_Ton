@@ -1,11 +1,56 @@
 [
-    { "emoji": "💦", "word": "Wasser", "id": 0 },
-    { "emoji": "🏘️", "word": "Häuser", "id": 1 },
-    { "emoji": "👃", "word": "Nase", "id": 2 },
-    { "emoji": "🧩", "word": "Puzzle", "id": 3 },
-    { "emoji": "🪹", "word": "Nest", "id": 4 },
-    { "emoji": "👣", "word": "Füße", "id": 5 },
-    { "emoji": "🧀", "word": "Käse", "id": 6 },
-    { "emoji": "🍕", "word": "Pizza", "id": 7 },
-    { "emoji": "👖", "word": "Hose", "id": 8 }
+    {
+        "id": "tasse",
+        "word": "Tasse",
+        "imageFile": "images/s_medial/Tasse.png",
+        "audioFile": "sounds/s_medial/Tasse.mp3"
+    },
+    {
+        "id": "hase",
+        "word": "Hase",
+        "imageFile": "images/s_medial/Hase.png",
+        "audioFile": "sounds/s_medial/Hase.mp3"
+    },
+    {
+        "id": "kaese",
+        "word": "Käse",
+        "imageFile": "images/s_medial/Kaese.png",
+        "audioFile": "sounds/s_medial/Kaese.mp3"
+    },
+    {
+        "id": "messer",
+        "word": "Messer",
+        "imageFile": "images/s_medial/Messer.png",
+        "audioFile": "sounds/s_medial/Messer.mp3"
+    },
+    {
+        "id": "kiste",
+        "word": "Kiste",
+        "imageFile": "images/s_medial/Kiste.png",
+        "audioFile": "sounds/s_medial/Kiste.mp3"
+    },
+    {
+        "id": "wiese",
+        "word": "Wiese",
+        "imageFile": "images/s_medial/Wiese.png",
+        "audioFile": "sounds/s_medial/Wiese.mp3"
+    },
+    {
+        "id": "hose",
+        "word": "Hose",
+        "imageFile": "images/s_medial/Hose.png",
+        "audioFile": "sounds/s_medial/Hose.mp3"
+    },
+    {
+        "id": "schuessel",
+        "word": "Schüssel",
+        "imageFile": "images/s_medial/Schuessel.png",
+        "audioFile": "sounds/s_medial/Schuessel.mp3"
+    },
+    {
+        "id": "insel",
+        "word": "Insel",
+        "imageFile": "images/s_medial/Insel.png",
+        "audioFile": "sounds/s_medial/Insel.mp3"
+    }
 ]
