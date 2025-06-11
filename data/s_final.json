@@ -2,7 +2,7 @@
     {
         "id": "haus",
         "word": "Haus",
-        "imageFile": "images/s_final/Haus.png",
+        "imageFile": "images/s_final/Haus.jpg",
         "audioFile": "sounds/s_final/Haus.mp3"
     },
     {
@@ -20,37 +20,37 @@
     {
         "id": "glas",
         "word": "Glas",
-        "imageFile": "images/s_final/Glas.png",
+        "imageFile": "images/s_final/Glas.jpg",
         "audioFile": "sounds/s_final/Glas.mp3"
     },
     {
         "id": "reis",
         "word": "Reis",
-        "imageFile": "images/s_final/Reis.png",
+        "imageFile": "images/s_final/Reis.jpg",
         "audioFile": "sounds/s_final/Reis.mp3"
     },
     {
         "id": "herz",
         "word": "Herz",
-        "imageFile": "images/s_final/Herz.png",
+        "imageFile": "images/s_final/Herz.jpg",
         "audioFile": "sounds/s_final/Herz.mp3"
     },
     {
         "id": "pommes",
         "word": "Pommes",
-        "imageFile": "images/s_final/Pommes.png",
+        "imageFile": "images/s_final/Pommes.jpg",
         "audioFile": "sounds/s_final/Pommes.mp3"
     },
     {
         "id": "fuss",
         "word": "Fuß",
-        "imageFile": "images/s_final/Fuss.png",
+        "imageFile": "images/s_final/Fuss.jpg",
         "audioFile": "sounds/s_final/Fuss.mp3"
     },
     {
         "id": "autos",
         "word": "Autos",
-        "imageFile": "images/s_final/Autos.png",
+        "imageFile": "images/s_final/Autos.jpg",
         "audioFile": "sounds/s_final/Autos.mp3"
     }
 ]
