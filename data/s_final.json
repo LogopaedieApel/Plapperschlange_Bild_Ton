@@ -1,11 +1,56 @@
 [
-    { "emoji": "🚌", "word": "Bus", "id": 0 },
-    { "emoji": "🦶", "word": "Fuß", "id": 1 },
-    { "emoji": "🍨", "word": "Eis", "id": 2 },
-    { "emoji": "♥️", "word": "Herz", "id": 3 },
-    { "emoji": "🍄", "word": "Pilz", "id": 4 },
-    { "emoji": "🐭", "word": "Maus", "id": 5 },
-    { "emoji": "🍟", "word": "Pommes", "id": 6 },
-    { "emoji": "🍚", "word": "Reis", "id": 7 },
-    { "emoji": "⬜", "word": "weiß", "id": 8 }
+    {
+        "id": "haus",
+        "word": "Haus",
+        "imageFile": "images/s_final/Haus.png",
+        "audioFile": "sounds/s_final/Haus.mp3"
+    },
+    {
+        "id": "eis",
+        "word": "Eis",
+        "imageFile": "images/s_final/Eis.png",
+        "audioFile": "sounds/s_final/Eis.mp3"
+    },
+    {
+        "id": "bus",
+        "word": "Bus",
+        "imageFile": "images/s_final/Bus.png",
+        "audioFile": "sounds/s_final/Bus.mp3"
+    },
+    {
+        "id": "glas",
+        "word": "Glas",
+        "imageFile": "images/s_final/Glas.png",
+        "audioFile": "sounds/s_final/Glas.mp3"
+    },
+    {
+        "id": "reis",
+        "word": "Reis",
+        "imageFile": "images/s_final/Reis.png",
+        "audioFile": "sounds/s_final/Reis.mp3"
+    },
+    {
+        "id": "mais",
+        "word": "Mais",
+        "imageFile": "images/s_final/Mais.png",
+        "audioFile": "sounds/s_final/Mais.mp3"
+    },
+    {
+        "id": "herz",
+        "word": "Herz",
+        "imageFile": "images/s_final/Herz.png",
+        "audioFile": "sounds/s_final/Herz.mp3"
+    },
+    {
+        "id": "pommes",
+        "word": "Pommes",
+        "imageFile": "images/s_final/Pommes.png",
+        "audioFile": "sounds/s_final/Pommes.mp3"
+    },
+    {
+        "id": "fuss",
+        "word": "Fuß",
+        "imageFile": "images/s_final/Fuss.png",
+        "audioFile": "sounds/s_final/Fuss.mp3"
+    }
 ]
