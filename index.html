@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Plapperschlange</title>
+    <!-- Google Font Comfortaa einbinden -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <style>
         html {
             height: 100%;
@@ -16,7 +20,7 @@
         }
 
         body {
-            font-family: sans-serif;
+            font-family: sans-serif; /* Basis-Schriftart, Comfortaa wird spezifischer zugewiesen */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -220,10 +224,29 @@
             margin-bottom: 20px;
         }
 
+        /* --- NEUE UND ANGEPASSTE STYLES FÜR ÜBERSCHRIFTEN --- */
+        h1,
+        #gameSubTitle, /* Unser neuer Untertitel */
+        .container h2#gameSetTitle /* Das spezifische h2 für den Set-Namen */ {
+            font-family: 'Comfortaa', sans-serif; /* Comfortaa für alle drei */
+        }
+
         h1 {
             color: #94bbb5;
             margin-top: 0;
             margin-bottom: 20px;
+            font-weight: 700; /* Comfortaa bold */
+            /* Die Schriftgröße wird standardmäßig von h1 übernommen oder kann hier explizit gesetzt werden */
+        }
+
+        #gameSubTitle { /* Styling für den neuen Untertitel */
+            color: #8B4513; /* Ein schöner Braunton (SaddleBrown) */
+            font-size: 1.4em; /* Größe zwischen h1 und h2, ggf. anpassen */
+            font-weight: 400; /* Normale Schriftstärke für Comfortaa */
+            text-align: center; /* Sicherstellen, dass es zentriert ist */
+            margin-top: -10px; /* Reduziert den Abstand zum h1 etwas */
+            margin-bottom: 15px; /* Abstand zum folgenden h2 */
+            line-height: 1.2;
         }
 
         .container h2 { /* Wird für Set-Namen verwendet */
@@ -232,7 +255,10 @@
             margin-top: 0;
             margin-bottom: 20px;
             min-height: 1.2em; /* Platzhalter für den Text */
+            font-weight: 400; /* Comfortaa regular, falls es fett sein soll, auf 700 ändern */
         }
+        /* --- ENDE NEUE UND ANGEPASSTE STYLES FÜR ÜBERSCHRIFTEN --- */
+
 
         .game-board {
             display: grid;
@@ -460,6 +486,7 @@
 
     <div class="container">
         <h1>Plapperschlange</h1>
+        <h3 id="gameSubTitle">Zischlaute</h3> {/* <<< NEUER UNTERTITEL HIER */}
         <h2 id="gameSetTitle">Wird geladen...</h2>
         <div class="game-board" id="gameBoard">
             <div class="board-overlay" id="boardOverlay"></div>
