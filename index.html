@@ -259,7 +259,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5em; 
+            font-size: 2.5em;
             cursor: pointer;
             transition: transform 0.1s ease-out, background-color 0.1s ease-out, filter 0.3s ease-out;
             user-select: none;
@@ -589,7 +589,7 @@
 
         async function initializeGameSets() {
             try {
-                const response = await fetch('sets_manifest.json'); 
+                const response = await fetch('sets_manifest.json');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 allAvailableSets = await response.json();
 
@@ -771,10 +771,10 @@
                 }
                 if (gameActive) {
                     disableBoardInteraction(true);
-                    updateSettingsAccess(false);
+                    updateSettingsAccess(false); // Parameter hier auf false setzen, damit Einstellungen im Menü aktiv sind
                     gameWasPausedByMenu = true;
                 } else {
-                     updateSettingsAccess(false);
+                     updateSettingsAccess(false); // Auch hier sicherstellen, dass die Einstellungen bei nicht aktivem Spiel bearbeitbar sind
                 }
             } else {
                 settingsMenu.classList.remove('active');
@@ -785,16 +785,16 @@
                     if (!firstLoad) {
                          disableBoardInteraction(false);
                     }
-                    updateSettingsAccess(true);
+                    updateSettingsAccess(true); // Wenn Spiel fortgesetzt wird, Einstellungen wieder (ggf.) sperren
                     gameWasPausedByMenu = false;
                 } else if (!gameActive && firstLoad) {
                      disableBoardInteraction(false);
                      gameBoardElement.classList.remove('initial-focus-menu');
                      firstLoad = false;
-                     updateSettingsAccess(false);
+                     updateSettingsAccess(false); // Einstellungen bleiben bearbeitbar, wenn Menü geschlossen und Spiel nicht gestartet
                 } else if (!gameActive && !endGameDisplay.classList.contains('visible')) {
                      disableBoardInteraction(false);
-                     updateSettingsAccess(false);
+                     updateSettingsAccess(false); // Einstellungen bleiben bearbeitbar
                 }
                  updateButtonStates(gameActive);
             }
@@ -856,7 +856,7 @@
             currentRound = 0; correctRounds = 0; playerSequence = []; roundAttempts = 0;
             gameWasPausedByMenu = false;
             updateButtonStates(true);
-            updateSettingsAccess(true);
+            updateSettingsAccess(true); // Sperrt Einstellungen, da Spiel läuft und Menü geschlossen ist
             initializeProgressCircles(totalRounds);
             await nextRound();
         }
@@ -877,7 +877,7 @@
                 disableBoardInteraction(false);
             }
             updateButtonStates(false);
-            updateSettingsAccess(false);
+            updateSettingsAccess(false); // Entsperrt Einstellungen, da Spiel nicht mehr aktiv
             clearProgressCircles();
             document.querySelectorAll('.tile.active, .tile.error-input').forEach(t => {
                 t.classList.remove('active'); t.classList.remove('error-input');
@@ -901,14 +901,21 @@
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
 
+        // ---------- KORRIGIERTE FUNKTION ----------
         function updateSettingsAccess(gameIsRunning) {
-            gameSetSelect.disabled = gameIsRunning && !settingsMenu.classList.contains('active');
-            sequenceLengthSelect.disabled = gameIsRunning;
-            numRoundsSelect.disabled = gameIsRunning;
-            // ENTFERNT: wordSpacingSelect.disabled ...
-            // ENTFERNT: voiceSelect.disabled ... (da Elemente nicht mehr existieren)
+            const menuIsOpen = settingsMenu.classList.contains('active');
+
+            // Einstellungen sind nur gesperrt, wenn ein Spiel läuft UND das Menü NICHT offen ist.
+            // Ist das Menü offen, sollen alle Einstellungen änderbar sein.
+            gameSetSelect.disabled = gameIsRunning && !menuIsOpen;
+            sequenceLengthSelect.disabled = gameIsRunning && !menuIsOpen;
+            numRoundsSelect.disabled = gameIsRunning && !menuIsOpen;
+
+            // Der Start-Button ist nur deaktiviert, wenn keine Sets verfügbar sind.
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
+        // ---------- ENDE KORRIGIERTE FUNKTION ----------
+
 
         function initializeProgressCircles(num) {
             progressCirclesContainer.innerHTML = '';
@@ -1043,7 +1050,7 @@
                 utterance.lang = 'de-DE'; // Sprache beibehalten
                 // Versuche, eine deutsche Stimme zu finden, falls die Default-Stimme nicht Deutsch ist
                 const voices = speechSynthesis.getVoices();
-                const germanVoice = voices.find(v => v.lang.startsWith('de') && v.default) || 
+                const germanVoice = voices.find(v => v.lang.startsWith('de') && v.default) ||
                                   voices.find(v => v.lang.startsWith('de'));
                 if (germanVoice) {
                     utterance.voice = germanVoice;
@@ -1146,7 +1153,7 @@
             if (wasActuallyActive) {
                 const successRate = totalRounds > 0 ? (correctRounds / totalRounds) * 100 : 0;
                 let message = `Spiel beendet! ${correctRounds} von ${totalRounds} richtig (${successRate.toFixed(0)}%).`;
-                
+
                 // Eventuell eine TTS-Ansage für das Ergebnis
                 // speak(message); // Optional
 
