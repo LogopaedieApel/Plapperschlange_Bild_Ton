@@ -901,7 +901,7 @@
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
 
-        // ---------- KORRIGIERTE FUNKTION ----------
+        // ---------- KORRIGIERTE FUNKTION (updateSettingsAccess) ----------
         function updateSettingsAccess(gameIsRunning) {
             const menuIsOpen = settingsMenu.classList.contains('active');
 
@@ -914,7 +914,7 @@
             // Der Start-Button ist nur deaktiviert, wenn keine Sets verfügbar sind.
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
-        // ---------- ENDE KORRIGIERTE FUNKTION ----------
+        // ---------- ENDE KORRIGIERTE FUNKTION (updateSettingsAccess) ----------
 
 
         function initializeProgressCircles(num) {
@@ -943,7 +943,7 @@
             playerSequence = []; roundAttempts = 0;
             disableBoardInteraction(true);
             repeatButton.disabled = true;
-            currentSequence = generateRandomSequence(sequenceLength);
+            currentSequence = generateRandomSequence(sequenceLength); // Verwendet die ausgewählte Sequenzlänge
             await sleep(500);
             await playSequence(currentSequence);
             if (gameActive && !gameWasPausedByMenu) {
@@ -952,21 +952,36 @@
             updateButtonStates(gameActive);
         }
 
+        // ---------- KORRIGIERTE FUNKTION (generateRandomSequence) ----------
         function generateRandomSequence(length) {
             const sequence = [];
             if (!ITEMS_DATA || ITEMS_DATA.length === 0) {
                 console.error("Kann keine Sequenz generieren, ITEMS_DATA ist leer.");
                 return [];
             }
-            const maxLength = ITEMS_DATA.length;
-            const actualLength = Math.min(length, maxLength);
-            const availableIds = ITEMS_DATA.map(item => item.id);
-            for (let i = 0; i < actualLength; i++) {
-                const randomIndex = Math.floor(Math.random() * availableIds.length);
-                sequence.push(availableIds[randomIndex]);
+
+            const allItemIds = ITEMS_DATA.map(item => item.id); // Alle verfügbaren (einzigartigen) IDs
+
+            // Sicherstellen, dass die angeforderte Länge nicht größer ist als die Anzahl der einzigartigen Items
+            // Wenn doch, wird die Sequenzlänge auf die maximale Anzahl einzigartiger Items reduziert.
+            const actualLength = Math.min(length, allItemIds.length);
+            if (length > allItemIds.length) {
+                console.warn(`Angeforderte Sequenzlänge (${length}) ist größer als die Anzahl einzigartiger Items (${allItemIds.length}). Reduziere auf ${allItemIds.length}.`);
             }
-            return sequence;
+
+            // Eine Kopie der IDs erstellen, um das Original nicht zu verändern
+            const shuffledIds = [...allItemIds];
+
+            // Mischen der IDs (Fisher-Yates Shuffle Algorithmus)
+            for (let i = shuffledIds.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledIds[i], shuffledIds[j]] = [shuffledIds[j], shuffledIds[i]]; // Elementtausch
+            }
+
+            // Die ersten 'actualLength' Elemente aus der gemischten Liste nehmen
+            return shuffledIds.slice(0, actualLength);
         }
+        // ---------- ENDE KORRIGIERTE FUNKTION (generateRandomSequence) ----------
 
         async function playSequence(sequence, isRepeat = false) {
             if ((!gameActive && !isRepeat) || !sequence || sequence.length === 0) return;
