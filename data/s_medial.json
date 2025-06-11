@@ -26,7 +26,7 @@
     {
         "id": "kiste",
         "word": "Kiste",
-        "imageFile": "images/s_medial/Kiste.png",
+        "imageFile": "images/s_medial/Kiste.jpg",
         "audioFile": "sounds/s_medial/Kiste.mp3"
     },
     {
@@ -38,7 +38,7 @@
     {
         "id": "hose",
         "word": "Hose",
-        "imageFile": "images/s_medial/Hose.png",
+        "imageFile": "images/s_medial/Hose.jpg",
         "audioFile": "sounds/s_medial/Hose.mp3"
     },
     {
@@ -50,7 +50,7 @@
     {
         "id": "insel",
         "word": "Insel",
-        "imageFile": "images/s_medial/Insel.png",
+        "imageFile": "images/s_medial/Insel.jpg",
         "audioFile": "sounds/s_medial/Insel.mp3"
     }
 ]
