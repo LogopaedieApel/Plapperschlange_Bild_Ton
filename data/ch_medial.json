@@ -1,11 +1,56 @@
 [
-    { "emoji": "💡", "word": "Licht", "id": 0 },
-    { "emoji": "👧🏻", "word": "Mädchen", "id": 1 },
-    { "emoji": "🥤", "word": "Becher", "id": 2 },
-    { "emoji": "🙋", "word": "ich", "id": 3 },
-    { "emoji": "📚", "word": "Bücher", "id": 4 },
-    { "emoji": "⛪", "word": "Kirche", "id": 5 },
-    { "emoji": "🪭", "word": "Fächer", "id": 6 },
-    { "emoji": "🪶", "word": "leicht", "id": 7 },
-    { "emoji": "👩‍🍳", "word": "Köchin", "id": 8 }
+    {
+        "id": "maedchen",
+        "word": "Maedchen",
+        "imageFile": "images/ch_medial/Maedchen.png",
+        "audioFile": "sounds/ch_medial/Maedchen.mp3"
+    },
+    {
+        "id": "paeckchen",
+        "word": "Paeckchen",
+        "imageFile": "images/ch_medial/Paeckchen.png",
+        "audioFile": "sounds/ch_medial/Paeckchen.mp3"
+    },
+    {
+        "id": "riechen",
+        "word": "riechen",
+        "imageFile": "images/ch_medial/riechen.png",
+        "audioFile": "sounds/ch_medial/riechen.mp3"
+    },
+    {
+        "id": "ich",
+        "word": "ich",
+        "imageFile": "images/ch_medial/ich.jpg",
+        "audioFile": "sounds/ch_medial/ich.mp3"
+    },
+    {
+        "id": "bücher",
+        "word": "Bücher",
+        "imageFile": "images/ch_medial/Buecher.png",
+        "audioFile": "sounds/ch_medial/Buecher.mp3"
+    },
+    {
+        "id": "broetchen",
+        "word": "Broetchen",
+        "imageFile": "images/ch_medial/Broetchen.png",
+        "audioFile": "sounds/ch_medial/Broetchen.mp3"
+    },
+    {
+        "id": "richtig",
+        "word": "richtig",
+        "imageFile": "images/ch_medial/richtig.jpg",
+        "audioFile": "sounds/ch_medial/richtig.mp3"
+    },
+    {
+        "id": "milch",
+        "word": "Milch",
+        "imageFile": "images/ch_medial/Milch.png",
+        "audioFile": "sounds/ch_medial/Milch.mp3"
+    },
+    {
+        "id": "früchte",
+        "word": "Früchte",
+        "imageFile": "images/ch_medial/Fruechte.png",
+        "audioFile": "sounds/ch_medial/Fruechte.mp3"
+    }
 ]
