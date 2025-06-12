@@ -14,7 +14,7 @@
     {
         "id": "riechen",
         "word": "riechen",
-        "imageFile": "images/ch_medial/riechen.png",
+        "imageFile": "images/ch_medial/riechen.jpg",
         "audioFile": "sounds/ch_medial/riechen.mp3"
     },
     {
@@ -38,7 +38,7 @@
     {
         "id": "richtig",
         "word": "richtig",
-        "imageFile": "images/ch_medial/richtig.jpg",
+        "imageFile": "images/ch_medial/richtig.png",
         "audioFile": "sounds/ch_medial/richtig.mp3"
     },
     {
