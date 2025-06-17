@@ -1,15 +1,15 @@
 [
     {
-        "id": "spitze",
-        "word": "Spitze",
-        "imageFile": "images/sch_kkv/Spitze.png",
-        "audioFile": "sounds/sch_kkv/Spitze.mp3"
+        "id": "spritze",
+        "word": "Spritze",
+        "imageFile": "images/sch_kkv/Spritze.png",
+        "audioFile": "sounds/sch_kkv/Spritze.mp3"
     },
     {
-        "id": "straße",
-        "word": "Straße",
-        "imageFile": "images/sch_kkv/Straße.png",
-        "audioFile": "sounds/sch_kkv/Straße.mp3"
+        "id": "strasse",
+        "word": "Strasse",
+        "imageFile": "images/sch_kkv/Strasse.png",
+        "audioFile": "sounds/sch_kkv/Strasse.mp3"
     },
     {
         "id": "schwein",
