@@ -1,0 +1,56 @@
+[
+    {
+        "id": "spitze",
+        "word": "Spitze",
+        "imageFile": "images/sch_kkv/Spitze.png",
+        "audioFile": "sounds/sch_kkv/Spitze.mp3"
+    },
+    {
+        "id": "straße",
+        "word": "Straße",
+        "imageFile": "images/sch_kkv/Straße.png",
+        "audioFile": "sounds/sch_kkv/Straße.mp3"
+    },
+    {
+        "id": "schwein",
+        "word": "Schwein",
+        "imageFile": "images/sch_kkv/Schwein.png",
+        "audioFile": "sounds/sch_kkv/Schwein.mp3"
+    },
+    {
+        "id": "spiele",
+        "word": "Spiele",
+        "imageFile": "images/sch_kkv/Spiele.png",
+        "audioFile": "sounds/sch_kkv/Spiele.mp3"
+    },
+    {
+        "id": "schnecke",
+        "word": "Schnecke",
+        "imageFile": "images/sch_kkv/Schnecke.png",
+        "audioFile": "sounds/sch_kkv/Schnecke.mp3"
+    },
+    {
+        "id": "schmetterling",
+        "word": "Schmetterling",
+        "imageFile": "images/sch_kkv/Schmetterling.png",
+        "audioFile": "sounds/sch_kkv/Schmetterling.mp3"
+    },
+    {
+        "id": "stein",
+        "word": "Stein",
+        "imageFile": "images/sch_kkv/Stein.png",
+        "audioFile": "sounds/sch_kkv/Stein.mp3"
+    },
+    {
+        "id": "schrauben",
+        "word": "Schrauben",
+        "imageFile": "images/sch_kkv/Schrauben.png",
+        "audioFile": "sounds/sch_kkv/Schrauben.mp3"
+    },
+    {
+        "id": "schlange",
+        "word": "Schlange",
+        "imageFile": "images/sch_kkv/Schlange.png",
+        "audioFile": "sounds/sch_kkv/Schlange.mp3"
+    }
+]
