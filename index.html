@@ -224,40 +224,37 @@
             margin-bottom: 20px;
         }
 
-        /* --- NEUE UND ANGEPASSTE STYLES FÜR ÜBERSCHRIFTEN --- */
         h1,
-        #gameSubTitle, /* Unser neuer Untertitel */
-        .container h2#gameSetTitle /* Das spezifische h2 für den Set-Namen */ {
-            font-family: 'Comfortaa', sans-serif; /* Comfortaa für alle drei */
+        #gameSubTitle,
+        .container h2#gameSetTitle {
+            font-family: 'Comfortaa', sans-serif;
         }
 
         h1 {
             color: #94bbb5;
             margin-top: 0;
             margin-bottom: 20px;
-            font-weight: 700; /* Comfortaa bold */
-            /* Die Schriftgröße wird standardmäßig von h1 übernommen oder kann hier explizit gesetzt werden */
+            font-weight: 700;
         }
 
-        #gameSubTitle { /* Styling für den neuen Untertitel */
-            color: #8B4513; /* Ein schöner Braunton (SaddleBrown) */
-            font-size: 1.4em; /* Größe zwischen h1 und h2, ggf. anpassen */
-            font-weight: 400; /* Normale Schriftstärke für Comfortaa */
-            text-align: center; /* Sicherstellen, dass es zentriert ist */
-            margin-top: -10px; /* Reduziert den Abstand zum h1 etwas */
-            margin-bottom: 15px; /* Abstand zum folgenden h2 */
+        #gameSubTitle {
+            color: #8B4513;
+            font-size: 1.4em;
+            font-weight: 400;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
 
-        .container h2 { /* Wird für Set-Namen verwendet */
+        .container h2 {
             font-size: 1.0em;
             color: #999999;
             margin-top: 0;
             margin-bottom: 20px;
-            min-height: 1.2em; /* Platzhalter für den Text */
-            font-weight: 400; /* Comfortaa regular, falls es fett sein soll, auf 700 ändern */
+            min-height: 1.2em;
+            font-weight: 400;
         }
-        /* --- ENDE NEUE UND ANGEPASSTE STYLES FÜR ÜBERSCHRIFTEN --- */
 
 
         .game-board {
@@ -471,8 +468,14 @@
                         <option value="15">15</option><option value="20">20</option>
                     </select>
                 </div>
-                <!-- ENTFERNT: Einstellung für Wortabstand -->
-                <!-- ENTFERNT: Einstellung für Stimme -->
+                <!-- NEU: Einstellung für Animation -->
+                <div>
+                    <label for="animationSelect">Animation beim Abspielen:</label>
+                    <select id="animationSelect">
+                        <option value="true" selected>An</option>
+                        <option value="false">Aus</option>
+                    </select>
+                </div>
             </div>
             <div class="settings-menu-footer">
                 <button id="applySettingsAndStartButton" class="apply-button">Start</button>
@@ -523,8 +526,6 @@
                 <li><strong>Durchgänge:</strong> Eine moderate Anzahl an Durchgängen (z.B. 5 bis 10) ist meist ideal,
                     um die Aufmerksamkeit aufrechtzuerhalten, ohne zu überfordern. Kurze, regelmäßige Spieleinheiten
                     sind oft effektiver als lange.</li>
-                <!-- ENTFERNT: Hinweis zum Abstand -->
-                <!-- ENTFERNT: Hinweis zur Stimme -->
             </ul>
             <p>
                 Der Abstand zwischen den Elementen einer Sequenz ist auf 500 Millisekunden (0,5 Sekunden) festgelegt.
@@ -546,12 +547,12 @@
             PAUSE: 0
         };
         const REWARD_MELODIES = [
-            [NOTE.C4, NOTE.G4, NOTE.C5, NOTE.E5, NOTE.D5, NOTE.C5],        // Melodie 1 (6 Noten)
-            [NOTE.E4, NOTE.F4, NOTE.G4, NOTE.A4, NOTE.G4, NOTE.C5],        // Melodie 2 (6 Noten)
-            [NOTE.C4, NOTE.E4, NOTE.G4, NOTE.C5, NOTE.E5, NOTE.C5],        // Melodie 3 (6 Noten)
-            [NOTE.G4, NOTE.B4, NOTE.D5, NOTE.C5, NOTE.G4],                 // Melodie 4 (5 Noten)
-            [NOTE.C5, NOTE.D5, NOTE.E5, NOTE.F5, NOTE.E5, NOTE.D5, NOTE.C5], // Melodie 5 (7 Noten)
-            [NOTE.G4, NOTE.A4, NOTE.C5, NOTE.D5, NOTE.B4, NOTE.C5],        // Melodie 6 (6 Noten)
+            [NOTE.C4, NOTE.G4, NOTE.C5, NOTE.E5, NOTE.D5, NOTE.C5],
+            [NOTE.E4, NOTE.F4, NOTE.G4, NOTE.A4, NOTE.G4, NOTE.C5],
+            [NOTE.C4, NOTE.E4, NOTE.G4, NOTE.C5, NOTE.E5, NOTE.C5],
+            [NOTE.G4, NOTE.B4, NOTE.D5, NOTE.C5, NOTE.G4],
+            [NOTE.C5, NOTE.D5, NOTE.E5, NOTE.F5, NOTE.E5, NOTE.D5, NOTE.C5],
+            [NOTE.G4, NOTE.A4, NOTE.C5, NOTE.D5, NOTE.B4, NOTE.C5],
             [NOTE.C4, NOTE.C4, NOTE.G4, NOTE.G4, NOTE.C5]
         ];
 
@@ -572,8 +573,7 @@
         const gameSetTitleElement = document.getElementById('gameSetTitle');
         const sequenceLengthSelect = document.getElementById('sequenceLength');
         const numRoundsSelect = document.getElementById('numRounds');
-        // ENTFERNT: wordSpacingSelect
-        // ENTFERNT: voiceSelect
+        const animationSelect = document.getElementById('animationSelect'); // NEU
         const repeatButton = document.getElementById('repeatButton');
         const progressCirclesContainer = document.getElementById('progressCircles');
 
@@ -592,10 +592,10 @@
         let totalRounds = 0;
         let correctRounds = 0;
         let sequenceLength = 0;
-        const WORD_SPACING_MS = 500; // NEU: Fester Wert für den Abstand
+        const WORD_SPACING_MS = 500;
+        let animationEnabled = true; // NEU: Variable für Animationsstatus
         let gameActive = false;
         let audioContext;
-        // ENTFERNT: availableVoices, selectedVoice
         let roundAttempts = 0;
         const MAX_ATTEMPTS_PER_ROUND = 2;
         let gameWasPausedByMenu = false;
@@ -704,7 +704,15 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             await initializeGameSets();
-            // ENTFERNT: initializeVoiceSelection();
+            
+            // NEU: Gespeicherte Animationseinstellung laden und Event Listener hinzufügen
+            const savedAnimationSetting = localStorage.getItem('animationEnabled');
+            if (savedAnimationSetting !== null) {
+                animationSelect.value = savedAnimationSetting;
+            }
+            animationSelect.addEventListener('change', () => {
+                localStorage.setItem('animationEnabled', animationSelect.value);
+            });
 
             menuToggleButton.addEventListener('click', () => toggleMenu());
             closeMenuButton.addEventListener('click', () => toggleMenu(false));
@@ -713,7 +721,6 @@
             playAgainButtonElement.addEventListener('click', handlePlayAgain);
 
             repeatButton.addEventListener('click', repeatCurrentSequence);
-            // ENTFERNT: voiceSelect.addEventListener('change', handleVoiceChange);
 
             infoButton.addEventListener('click', () => {
                 infoModal.classList.add('visible');
@@ -739,9 +746,6 @@
             }
             updateSettingsAccess(false);
         });
-
-        // ENTFERNT: initializeVoiceSelection()
-        // ENTFERNT: handleVoiceChange()
 
         function populateBoard() {
             gameBoardElement.querySelectorAll('.tile').forEach(tile => tile.remove());
@@ -798,10 +802,10 @@
                 }
                 if (gameActive) {
                     disableBoardInteraction(true);
-                    updateSettingsAccess(false); // Parameter hier auf false setzen, damit Einstellungen im Menü aktiv sind
+                    updateSettingsAccess(false);
                     gameWasPausedByMenu = true;
                 } else {
-                     updateSettingsAccess(false); // Auch hier sicherstellen, dass die Einstellungen bei nicht aktivem Spiel bearbeitbar sind
+                     updateSettingsAccess(false);
                 }
             } else {
                 settingsMenu.classList.remove('active');
@@ -812,16 +816,16 @@
                     if (!firstLoad) {
                          disableBoardInteraction(false);
                     }
-                    updateSettingsAccess(true); // Wenn Spiel fortgesetzt wird, Einstellungen wieder (ggf.) sperren
+                    updateSettingsAccess(true);
                     gameWasPausedByMenu = false;
                 } else if (!gameActive && firstLoad) {
                      disableBoardInteraction(false);
                      gameBoardElement.classList.remove('initial-focus-menu');
                      firstLoad = false;
-                     updateSettingsAccess(false); // Einstellungen bleiben bearbeitbar, wenn Menü geschlossen und Spiel nicht gestartet
+                     updateSettingsAccess(false);
                 } else if (!gameActive && !endGameDisplay.classList.contains('visible')) {
                      disableBoardInteraction(false);
-                     updateSettingsAccess(false); // Einstellungen bleiben bearbeitbar
+                     updateSettingsAccess(false);
                 }
                  updateButtonStates(gameActive);
             }
@@ -879,11 +883,11 @@
             await ensureAudioContext();
             sequenceLength = parseInt(sequenceLengthSelect.value);
             totalRounds = parseInt(numRoundsSelect.value);
-            // ENTFERNT: wordSpacing = parseInt(wordSpacingSelect.value); (jetzt WORD_SPACING_MS Konstante)
+            animationEnabled = animationSelect.value === 'true'; // NEU: Animations-Einstellung auslesen
             currentRound = 0; correctRounds = 0; playerSequence = []; roundAttempts = 0;
             gameWasPausedByMenu = false;
             updateButtonStates(true);
-            updateSettingsAccess(true); // Sperrt Einstellungen, da Spiel läuft und Menü geschlossen ist
+            updateSettingsAccess(true);
             initializeProgressCircles(totalRounds);
             await nextRound();
         }
@@ -904,7 +908,7 @@
                 disableBoardInteraction(false);
             }
             updateButtonStates(false);
-            updateSettingsAccess(false); // Entsperrt Einstellungen, da Spiel nicht mehr aktiv
+            updateSettingsAccess(false);
             clearProgressCircles();
             document.querySelectorAll('.tile.active, .tile.error-input').forEach(t => {
                 t.classList.remove('active'); t.classList.remove('error-input');
@@ -927,22 +931,19 @@
             repeatButton.disabled = !isPlaying || currentSequence.length === 0 || isBoardBlocked;
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
-
-        // ---------- KORRIGIERTE FUNKTION (updateSettingsAccess) ----------
+        
+        // MODIFIZIERT: updateSettingsAccess
         function updateSettingsAccess(gameIsRunning) {
             const menuIsOpen = settingsMenu.classList.contains('active');
+            const shouldBeDisabled = gameIsRunning && !menuIsOpen;
 
-            // Einstellungen sind nur gesperrt, wenn ein Spiel läuft UND das Menü NICHT offen ist.
-            // Ist das Menü offen, sollen alle Einstellungen änderbar sein.
-            gameSetSelect.disabled = gameIsRunning && !menuIsOpen;
-            sequenceLengthSelect.disabled = gameIsRunning && !menuIsOpen;
-            numRoundsSelect.disabled = gameIsRunning && !menuIsOpen;
+            gameSetSelect.disabled = shouldBeDisabled;
+            sequenceLengthSelect.disabled = shouldBeDisabled;
+            numRoundsSelect.disabled = shouldBeDisabled;
+            animationSelect.disabled = shouldBeDisabled; // NEU
 
-            // Der Start-Button ist nur deaktiviert, wenn keine Sets verfügbar sind.
             applySettingsAndStartButton.disabled = (allAvailableSets.length === 0);
         }
-        // ---------- ENDE KORRIGIERTE FUNKTION (updateSettingsAccess) ----------
-
 
         function initializeProgressCircles(num) {
             progressCirclesContainer.innerHTML = '';
@@ -970,7 +971,7 @@
             playerSequence = []; roundAttempts = 0;
             disableBoardInteraction(true);
             repeatButton.disabled = true;
-            currentSequence = generateRandomSequence(sequenceLength); // Verwendet die ausgewählte Sequenzlänge
+            currentSequence = generateRandomSequence(sequenceLength);
             await sleep(500);
             await playSequence(currentSequence);
             if (gameActive && !gameWasPausedByMenu) {
@@ -979,37 +980,26 @@
             updateButtonStates(gameActive);
         }
 
-        // ---------- KORRIGIERTE FUNKTION (generateRandomSequence) ----------
         function generateRandomSequence(length) {
             const sequence = [];
             if (!ITEMS_DATA || ITEMS_DATA.length === 0) {
                 console.error("Kann keine Sequenz generieren, ITEMS_DATA ist leer.");
                 return [];
             }
-
-            const allItemIds = ITEMS_DATA.map(item => item.id); // Alle verfügbaren (einzigartigen) IDs
-
-            // Sicherstellen, dass die angeforderte Länge nicht größer ist als die Anzahl der einzigartigen Items
-            // Wenn doch, wird die Sequenzlänge auf die maximale Anzahl einzigartiger Items reduziert.
+            const allItemIds = ITEMS_DATA.map(item => item.id);
             const actualLength = Math.min(length, allItemIds.length);
             if (length > allItemIds.length) {
                 console.warn(`Angeforderte Sequenzlänge (${length}) ist größer als die Anzahl einzigartiger Items (${allItemIds.length}). Reduziere auf ${allItemIds.length}.`);
             }
-
-            // Eine Kopie der IDs erstellen, um das Original nicht zu verändern
             const shuffledIds = [...allItemIds];
-
-            // Mischen der IDs (Fisher-Yates Shuffle Algorithmus)
             for (let i = shuffledIds.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [shuffledIds[i], shuffledIds[j]] = [shuffledIds[j], shuffledIds[i]]; // Elementtausch
+                [shuffledIds[i], shuffledIds[j]] = [shuffledIds[j], shuffledIds[i]];
             }
-
-            // Die ersten 'actualLength' Elemente aus der gemischten Liste nehmen
             return shuffledIds.slice(0, actualLength);
         }
-        // ---------- ENDE KORRIGIERTE FUNKTION (generateRandomSequence) ----------
 
+        // MODIFIZIERT: playSequence
         async function playSequence(sequence, isRepeat = false) {
             if ((!gameActive && !isRepeat) || !sequence || sequence.length === 0) return;
             disableBoardInteraction(true);
@@ -1023,19 +1013,28 @@
                 const itemData = ITEMS_DATA.find(d => d.id === itemId);
                 const tileElement = gameBoardElement.querySelector(`.tile[data-id='${itemId}']`);
                 if (itemData && tileElement) {
-                    tileElement.classList.add('active');
+                    // HIER DIE ÄNDERUNG: Visuelle Animation nur abspielen, wenn aktiviert
+                    if (animationEnabled) {
+                        tileElement.classList.add('active');
+                    }
+                    
+                    // Audio wird immer abgespielt
                     if (itemData.audioFile) {
                         await playAudio(itemData.audioFile);
                     } else if (itemData.word) {
                         console.warn(`Kein audioFile für Item ${itemId}, verwende TTS für "${itemData.word}"`);
                         await speak(itemData.word);
                     }
-                    await sleep(100);
-                    tileElement.classList.remove('active');
+                    
+                    // Animation beenden, wenn sie aktiviert war
+                    if (animationEnabled) {
+                        await sleep(100);
+                        tileElement.classList.remove('active');
+                    }
                 }
                 if (gameActive || isRepeat) {
                      if (gameWasPausedByMenu) break;
-                     await sleep(WORD_SPACING_MS); // VERWENDET KONSTANTE
+                     await sleep(WORD_SPACING_MS);
                 } else { break; }
             }
             if (((gameActive && !gameWasPausedByMenu) || isRepeat) && !gameWasPausedByMenu) {
@@ -1062,24 +1061,12 @@
                 }
                 stopCurrentAudio();
                 currentAudioElement = new Audio(audioSrc);
-                currentAudioElement.onended = () => {
-                    currentAudioElement = null;
-                    resolve();
-                };
-                currentAudioElement.onerror = (e) => {
-                    console.error('Audio Playback Error:', e, "Src:", audioSrc);
-                    currentAudioElement = null;
-                    resolve();
-                };
-                currentAudioElement.play().catch(error => {
-                    console.error("Fehler beim Starten der Audiowiedergabe für:", audioSrc, error);
-                    currentAudioElement = null;
-                    resolve();
-                });
+                currentAudioElement.onended = () => { currentAudioElement = null; resolve(); };
+                currentAudioElement.onerror = (e) => { console.error('Audio Playback Error:', e, "Src:", audioSrc); currentAudioElement = null; resolve(); };
+                currentAudioElement.play().catch(error => { console.error("Fehler beim Starten der Audiowiedergabe für:", audioSrc, error); currentAudioElement = null; resolve(); });
             });
         }
 
-        // VEREINFACHT: `speak()` verwendet immer System-Standardstimme
         function speak(text) {
             return new Promise(async (resolve) => {
                 if (!('speechSynthesis' in window) || !text) { resolve(); return; }
@@ -1089,15 +1076,10 @@
                     await sleep(50);
                 }
                 const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'de-DE'; // Sprache beibehalten
-                // Versuche, eine deutsche Stimme zu finden, falls die Default-Stimme nicht Deutsch ist
+                utterance.lang = 'de-DE';
                 const voices = speechSynthesis.getVoices();
-                const germanVoice = voices.find(v => v.lang.startsWith('de') && v.default) ||
-                                  voices.find(v => v.lang.startsWith('de'));
-                if (germanVoice) {
-                    utterance.voice = germanVoice;
-                } // Ansonsten wird die Browser-Standardstimme verwendet
-
+                const germanVoice = voices.find(v => v.lang.startsWith('de') && v.default) || voices.find(v => v.lang.startsWith('de'));
+                if (germanVoice) { utterance.voice = germanVoice; }
                 utterance.onend = () => resolve();
                 utterance.onerror = (event) => { console.error('TTS Error:', event.error, "Text:", text); resolve(); };
                 speechSynthesis.speak(utterance);
@@ -1195,10 +1177,6 @@
             if (wasActuallyActive) {
                 const successRate = totalRounds > 0 ? (correctRounds / totalRounds) * 100 : 0;
                 let message = `Spiel beendet! ${correctRounds} von ${totalRounds} richtig (${successRate.toFixed(0)}%).`;
-
-                // Eventuell eine TTS-Ansage für das Ergebnis
-                // speak(message); // Optional
-
                 endGameDisplay.querySelector('.emoji-icon').style.display = '';
                 endGameMessageElement.textContent = message;
                 playAgainButtonElement.style.display = '';
