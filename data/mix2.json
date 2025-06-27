@@ -26,25 +26,25 @@
     {
         "id": "streicheln",
         "word": "streicheln",
-        "imageFile": "images/mix2/streicheln.jpg",
+        "imageFile": "images/mix2/streicheln.jpeg",
         "audioFile": "sounds/mix2/streicheln.mp3"
     },
     {
         "id": "vogelscheuche",
         "word": "Vogelscheuche",
-        "imageFile": "images/mix2/Vogelscheuche.jpg",
+        "imageFile": "images/mix2/Vogelscheuche.jpeg",
         "audioFile": "sounds/mix2/Vogelscheuche.mp3"
     },
     {
         "id": "specht",
         "word": "Specht",
-        "imageFile": "images/mix2/Specht.jpg",
+        "imageFile": "images/mix2/Specht.jpeg",
         "audioFile": "sounds/mix2/Specht.mp3"
     },
     {
         "id": "strich",
         "word": "Strich",
-        "imageFile": "images/mix2/Strich.jpg",
+        "imageFile": "images/mix2/Strich.jpeg",
         "audioFile": "sounds/mix2/Strich.mp3"
     },
     {
