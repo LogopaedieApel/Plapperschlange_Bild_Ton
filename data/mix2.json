@@ -1,0 +1,56 @@
+[
+    {
+        "id": "meerschweinchen",
+        "word": "Meerschweinchen",
+        "imageFile": "images/mix2/Meerschweinchen.png",
+        "audioFile": "sounds/mix2/Meerschweinchen.mp3"
+    },
+    {
+        "id": "handschuhe",
+        "word": "Handschuhe",
+        "imageFile": "images/mix2/Handschuhe.png",
+        "audioFile": "sounds/mix2/Handschuhe.mp3"
+    },
+    {
+        "id": "buntstifte",
+        "word": "Buntstifte",
+        "imageFile": "images/mix2/Buntstifte.png",
+        "audioFile": "sounds/mix2/Buntstifte.mp3"
+    },
+    {
+        "id": "waschmaschine",
+        "word": "Waschmaschine",
+        "imageFile": "images/mix2/Waschmaschine.png",
+        "audioFile": "sounds/mix2/Waschmaschine.mp3"
+    },
+    {
+        "id": "streicheln",
+        "word": "streicheln",
+        "imageFile": "images/mix2/streicheln.jpg",
+        "audioFile": "sounds/mix2/streicheln.mp3"
+    },
+    {
+        "id": "vogelscheuche",
+        "word": "Vogelscheuche",
+        "imageFile": "images/mix2/Vogelscheuche.jpg",
+        "audioFile": "sounds/mix2/Vogelscheuche.mp3"
+    },
+    {
+        "id": "specht",
+        "word": "Specht",
+        "imageFile": "images/mix2/Specht.jpg",
+        "audioFile": "sounds/mix2/Specht.mp3"
+    },
+    {
+        "id": "strich",
+        "word": "Strich",
+        "imageFile": "images/mix2/Strich.jpg",
+        "audioFile": "sounds/mix2/Strich.mp3"
+    },
+    {
+        "id": "eichhoernchen",
+        "word": "Eichhoernchen",
+        "imageFile": "images/mix2/Eichhoernchen.png",
+        "audioFile": "sounds/mix2/Eichhoernchen.mp3"
+    }
+]
