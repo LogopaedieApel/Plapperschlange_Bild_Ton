@@ -6,5 +6,7 @@
     { "id": "sch_medial", "name": "Wörter mit SCH in der Mitte", "file": "data/sch_medial.json" },
     { "id": "sch_final", "name": "Wörter mit SCH am Ende", "file": "data/sch_final.json" },
     { "id": "sch_kkv", "name": "Wörter mit SCH in Konsonantenverbindungen", "file": "data/sch_kkv.json" },
-    { "id": "ch_medial", "name": "Wörter mit CH in der Mitte und am Ende", "file": "data/ch_medial.json" }
-   ]
+    { "id": "ch_medial", "name": "Wörter mit CH in der Mitte und am Ende", "file": "data/ch_medial.json" },
+    { "id": "ch_medial", "name": "Mix1 Wörter mit SCH oder S am Anfang", "file": "data/mix1.json" },
+    { "id": "ch_medial", "name": "Mix2 Wörter mit SCH oder CH in der Mitte", "file": "data/mix2.json" }
+]
