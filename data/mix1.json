@@ -1,0 +1,56 @@
+[
+    {
+        "id": "spielzeug",
+        "word": "Spielzeug",
+        "imageFile": "images/mix1/Spielzeug.png",
+        "audioFile": "sounds/mix1/Spielzeug.mp3"
+    },
+    {
+        "id": "schrank",
+        "word": "Schrank",
+        "imageFile": "images/mix1/Schrank.png",
+        "audioFile": "sounds/mix1/Schrank.mp3"
+    },
+    {
+        "id": "strand",
+        "word": "Strand",
+        "imageFile": "images/mix1/Strand.png",
+        "audioFile": "sounds/mix1/Strand.mp3"
+    },
+    {
+        "id": "schreiben",
+        "word": "schreiben",
+        "imageFile": "images/mix1/schreiben.png",
+        "audioFile": "sounds/mix1/schreiben.mp3"
+    },
+    {
+        "id": "schneemann",
+        "word": "Schneemann",
+        "imageFile": "images/mix1/Schneemann.png",
+        "audioFile": "sounds/mix1/Schneemann.mp3"
+    },
+    {
+        "id": "sack",
+        "word": "Sack",
+        "imageFile": "images/mix1/Sack.png",
+        "audioFile": "sounds/mix1/Sack.mp3"
+    },
+    {
+        "id": "sieben",
+        "word": "Sieben",
+        "imageFile": "images/mix1/Sieben.jpg",
+        "audioFile": "sounds/mix1/Sieben.mp3"
+    },
+    {
+        "id": "suessigkeiten",
+        "word": "Suessigkeiten",
+        "imageFile": "images/mix1/Suessigkeiten.png",
+        "audioFile": "sounds/mix1/Suessigkeiten.mp3"
+    },
+    {
+        "id": "salz",
+        "word": "Salz",
+        "imageFile": "images/mix1/Salz.png",
+        "audioFile": "sounds/mix1/Salz.mp3"
+    }
+]
